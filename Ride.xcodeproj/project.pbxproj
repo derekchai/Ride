@@ -12,6 +12,11 @@
 		A8406CED2BCA069A0022A221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8406CEC2BCA069A0022A221 /* Assets.xcassets */; };
 		A8406CF02BCA069A0022A221 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8406CEF2BCA069A0022A221 /* Preview Assets.xcassets */; };
 		A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CFB2BCB68440022A221 /* LocationManager.swift */; };
+		A8406D002BCB85170022A221 /* RoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CFF2BCB85170022A221 /* RoutesView.swift */; };
+		A8406D022BCB89270022A221 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D012BCB89270022A221 /* Route.swift */; };
+		A8406D042BCB922B0022A221 /* RoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D032BCB922B0022A221 /* RoutePoint.swift */; };
+		A8406D072BCB9B7F0022A221 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D062BCB9B7F0022A221 /* DateExtension.swift */; };
+		A8406D092BCB9F450022A221 /* TimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D082BCB9F450022A221 /* TimeIntervalExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		A8406CEC2BCA069A0022A221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8406CEF2BCA069A0022A221 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A8406CFB2BCB68440022A221 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A8406CFF2BCB85170022A221 /* RoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesView.swift; sourceTree = "<group>"; };
+		A8406D012BCB89270022A221 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		A8406D032BCB922B0022A221 /* RoutePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePoint.swift; sourceTree = "<group>"; };
+		A8406D062BCB9B7F0022A221 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		A8406D082BCB9F450022A221 /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +63,12 @@
 		A8406CE72BCA06990022A221 /* Ride */ = {
 			isa = PBXGroup;
 			children = (
+				A8406D052BCB9B760022A221 /* Utils */,
+				A8406CEA2BCA06990022A221 /* ContentView.swift */,
+				A8406CFE2BCB84ED0022A221 /* Views */,
 				A8406CFD2BCB849F0022A221 /* Managers */,
 				A8406CF62BCA06A30022A221 /* Models */,
 				A8406CE82BCA06990022A221 /* RideApp.swift */,
-				A8406CEA2BCA06990022A221 /* ContentView.swift */,
 				A8406CEC2BCA069A0022A221 /* Assets.xcassets */,
 				A8406CEE2BCA069A0022A221 /* Preview Content */,
 			);
@@ -74,6 +86,8 @@
 		A8406CF62BCA06A30022A221 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A8406D012BCB89270022A221 /* Route.swift */,
+				A8406D032BCB922B0022A221 /* RoutePoint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -84,6 +98,23 @@
 				A8406CFB2BCB68440022A221 /* LocationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A8406CFE2BCB84ED0022A221 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8406CFF2BCB85170022A221 /* RoutesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8406D052BCB9B760022A221 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A8406D062BCB9B7F0022A221 /* DateExtension.swift */,
+				A8406D082BCB9F450022A221 /* TimeIntervalExtension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8406D002BCB85170022A221 /* RoutesView.swift in Sources */,
+				A8406D072BCB9B7F0022A221 /* DateExtension.swift in Sources */,
 				A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */,
+				A8406D042BCB922B0022A221 /* RoutePoint.swift in Sources */,
 				A8406CE92BCA06990022A221 /* RideApp.swift in Sources */,
+				A8406D022BCB89270022A221 /* Route.swift in Sources */,
 				A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */,
+				A8406D092BCB9F450022A221 /* TimeIntervalExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,11 +9,6 @@ import Foundation
 import MapKit
 import SwiftUI
 
-struct RoutePoint {
-    var coordinate: CLLocationCoordinate2D
-    var speed: CLLocationSpeed
-}
-
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManger = CLLocationManager()
     
@@ -72,8 +67,8 @@ extension LocationManager {
         
         guard let lastLocation = locations.last else { return }
         
-        print("Coordinate: \(lastLocation.coordinate.latitude), \(lastLocation.coordinate.longitude). Speed: \(lastLocation.speed * 3.6) km/h")
+        print("Coordinate: \(lastLocation.coordinate.latitude), \(lastLocation.coordinate.longitude). Speed: \(lastLocation.speed * 3.6) km/h. Alt.: \(lastLocation.altitude) m.")
         
-        routePoints.append(RoutePoint(coordinate: lastLocation.coordinate, speed: lastLocation.speed))
+        routePoints.append(RoutePoint(coordinate: lastLocation.coordinate, speed: lastLocation.speed, altitude: lastLocation.altitude, timestamp: lastLocation.timestamp))
     }
 }
