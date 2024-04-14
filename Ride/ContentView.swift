@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 
 struct ContentView: View {
-    @StateObject var manager = LocationManager()
+    @StateObject var locationManager = LocationManager()
     
     private let routeLineStyle = StrokeStyle(
         lineWidth: 8,
@@ -24,17 +24,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Map(position: $manager.region) {
+            Map(initialPosition: $locationManager.region.wrappedValue) {
                 UserAnnotation()
-                MapPolyline(coordinates: $manager.routeCoordinates.wrappedValue)
+                
+                MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
                     .strokeStyle(style: routeOutlineStyle)
                     .stroke(.white)
                 
-                MapPolyline(coordinates: $manager.routeCoordinates.wrappedValue)
+                MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
                     .strokeStyle(style: routeLineStyle)
                     .stroke(.blue)
             }
-            .ignoresSafeArea()
+            .mapControls {
+                MapCompass()
+            }
         }
     }
 }
