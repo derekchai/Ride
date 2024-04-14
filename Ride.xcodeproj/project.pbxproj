@@ -11,6 +11,7 @@
 		A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CEA2BCA06990022A221 /* ContentView.swift */; };
 		A8406CED2BCA069A0022A221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8406CEC2BCA069A0022A221 /* Assets.xcassets */; };
 		A8406CF02BCA069A0022A221 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8406CEF2BCA069A0022A221 /* Preview Assets.xcassets */; };
+		A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CFB2BCB68440022A221 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		A8406CEA2BCA06990022A221 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A8406CEC2BCA069A0022A221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8406CEF2BCA069A0022A221 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A8406CFB2BCB68440022A221 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +53,12 @@
 		A8406CE72BCA06990022A221 /* Ride */ = {
 			isa = PBXGroup;
 			children = (
+				A8406CF62BCA06A30022A221 /* Models */,
 				A8406CE82BCA06990022A221 /* RideApp.swift */,
 				A8406CEA2BCA06990022A221 /* ContentView.swift */,
 				A8406CEC2BCA069A0022A221 /* Assets.xcassets */,
 				A8406CEE2BCA069A0022A221 /* Preview Content */,
+				A8406CFB2BCB68440022A221 /* LocationManager.swift */,
 			);
 			path = Ride;
 			sourceTree = "<group>";
@@ -65,6 +69,13 @@
 				A8406CEF2BCA069A0022A221 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A8406CF62BCA06A30022A221 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */,
 				A8406CE92BCA06990022A221 /* RideApp.swift in Sources */,
+				A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +287,8 @@
 				DEVELOPMENT_TEAM = FR86D5B46K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is required for Ride to function correctly";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is required for Ride to function correctly";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +318,8 @@
 				DEVELOPMENT_TEAM = FR86D5B46K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is required for Ride to function correctly";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is required for Ride to function correctly";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -6,16 +6,36 @@
 //
 
 import SwiftUI
+import CoreLocation
+import MapKit
 
 struct ContentView: View {
+    @StateObject var manager = LocationManager()
+    
+    private let routeLineStyle = StrokeStyle(
+        lineWidth: 8,
+        lineCap: .round
+    )
+    
+    private let routeOutlineStyle = StrokeStyle(
+        lineWidth: 12,
+        lineCap: .round
+    )
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Map(position: $manager.region) {
+                UserAnnotation()
+                MapPolyline(coordinates: $manager.routeCoordinates.wrappedValue)
+                    .strokeStyle(style: routeOutlineStyle)
+                    .stroke(.white)
+                
+                MapPolyline(coordinates: $manager.routeCoordinates.wrappedValue)
+                    .strokeStyle(style: routeLineStyle)
+                    .stroke(.blue)
+            }
+            .ignoresSafeArea()
         }
-        .padding()
     }
 }
 
