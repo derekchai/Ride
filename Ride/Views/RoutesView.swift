@@ -9,12 +9,15 @@ import SwiftUI
 import CoreLocation
 
 struct RoutesView: View {
+    @Binding var routes: [Route]
     
     var body: some View {
         NavigationStack {
             VStack {
-                List {
-                    
+                List($routes) { $route in
+                    NavigationLink(destination: RouteDetailView(route: route)) {
+                        RouteCardView(route: route)
+                    }
                 }
                 .navigationTitle("Routes")
                 
@@ -31,5 +34,5 @@ struct RoutesView: View {
 }
 
 #Preview {
-    RoutesView()
+    RoutesView(routes: .constant(Route.sampleData))
 }

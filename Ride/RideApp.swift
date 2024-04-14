@@ -11,7 +11,7 @@ import SwiftUI
 struct RideApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RoutesView(routes: .constant(Route.sampleData))
         }
     }
 }
