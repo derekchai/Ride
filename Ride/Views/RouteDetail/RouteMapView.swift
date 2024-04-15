@@ -10,11 +10,13 @@ import MapKit
 
 struct RouteMapView: View {
     @Binding var showingSpeedColors: Bool
+    @Binding var distance: CLLocationDistance
     
     let points: [RoutePoint]
     
-    private let gradient = Gradient(colors: [.red, .green])
-    
+    private var cursorIndex: Int {
+        points.firstIndex(where: { $0 == points.pointBeforeDistance(distance: distance)})!
+    }
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -22,6 +24,24 @@ struct RouteMapView: View {
                 MapPolyline(coordinates: points.map { $0.coordinate })
                     .strokeStyle(style: .mapRouteOutline)
                     .stroke(.white)
+                
+                if points.count >= 2 {
+                    Marker("Start", coordinate: points.first!.coordinate)
+                        .tint(.red)
+                    
+                    Marker("End", coordinate: points.last!.coordinate)
+                        .tint(.green)
+                }
+                
+                Annotation("Cursor", coordinate: points[cursorIndex].coordinate) {
+                    Circle()
+                        .stroke(.black, lineWidth: 14)
+                        .stroke(.white, lineWidth: 8)
+                        .fill(.black)
+                        .frame(width: 6, height: 6)
+                }
+                .annotationTitles(.hidden)
+                
                 
                 if !showingSpeedColors || points.maxSpeed == nil {
                     MapPolyline(coordinates: points.map { $0.coordinate })
@@ -60,5 +80,5 @@ struct RouteMapView: View {
 }
 
 #Preview {
-    RouteMapView(showingSpeedColors: .constant(true), points: Route.sampleRoute.points)
+    RouteMapView(showingSpeedColors: .constant(true), distance: .constant(0), points: Route.sampleRoute.points)
 }

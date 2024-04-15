@@ -9,7 +9,19 @@ import Foundation
 import MapKit
 import SwiftUI
 
-struct RoutePoint: Identifiable {
+struct RoutePoint: Identifiable, Equatable {
+    /// Returns `true` if both sides' latitudes and longitudes are equal.
+    ///
+    /// `id`, `speed`, `altitude`, and `timestamp` are ignored.
+    static func == (lhs: RoutePoint, rhs: RoutePoint) -> Bool {
+        if lhs.coordinate.latitude == rhs.coordinate.latitude 
+            && lhs.coordinate.longitude == rhs.coordinate.longitude {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var id: UUID
     
     var coordinate: CLLocationCoordinate2D
@@ -122,7 +134,7 @@ extension [RoutePoint] {
     var distances: [CLLocationDistance] {
         var output: [CLLocationDistance] = []
         
-        for i in 0..<self.count {
+        for i in self.indices {
             output.append(self.distanceBetween(i2: i))
         }
          return output
@@ -132,5 +144,21 @@ extension [RoutePoint] {
     /// altitude.
     var altitudes: [CLLocationDistance] {
         self.map { $0.altitude }
+    }
+    
+    func pointBeforeDistance(distance: CLLocationDistance) -> RoutePoint? {
+        guard !self.isEmpty else { return nil }
+        
+        var tempPoint: RoutePoint = self.first!
+        
+        for i in self.indices {
+            if self.distanceBetween(i2: i) < distance {
+                tempPoint = self[i]
+            } else {
+                return tempPoint
+            }
+        }
+        
+        return nil
     }
 }

@@ -11,13 +11,15 @@ import SwiftUI
 
 extension StrokeStyle {
     static let mapRouteLine = StrokeStyle(
-        lineWidth: 8,
-        lineCap: .round
+        lineWidth: 4,
+        lineCap: .round,
+        lineJoin: .round
     )
     
     static let mapRouteOutline = StrokeStyle(
-        lineWidth: 12,
-        lineCap: .round
+        lineWidth: 6,
+        lineCap: .round,
+        lineJoin: .round
     )
     
     static let routePreview = StrokeStyle(

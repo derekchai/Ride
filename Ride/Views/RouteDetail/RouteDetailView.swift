@@ -15,13 +15,28 @@ struct RouteDetailView: View {
     @State private var showingSpeedColors: Bool = true
     @State private var showingElevationChartHistogram: Bool = false
     @State private var selectedIndex: Int? = 0
+//    @State private var mapIndex: Int = 0
+    
+    @State private var mapSliderValue: Double = 0
+    
+    
+    
     
     var body: some View {
         List {
             Section(header: Text("Overview")) {
-                RouteMapView(showingSpeedColors: $showingSpeedColors, points: route.points)
+                RouteMapView(showingSpeedColors: $showingSpeedColors, distance: $mapSliderValue, points: route.points)
                     .frame(height: 300)
                     .listRowInsets(EdgeInsets())
+                
+                Slider(
+                    value: $mapSliderValue,
+                    in: 0...route.points.totalDistance
+                
+                )
+                
+//                Text("mapSliderValue \(mapSliderValue)")
+//                Text("altitude of pointBeforeDistance \(route.points.pointBeforeDistance(distance: mapSliderValue)!.altitude)")
                 
                 Toggle("Show speed colors", isOn: $showingSpeedColors)
                 
