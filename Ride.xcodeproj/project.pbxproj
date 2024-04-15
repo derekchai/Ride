@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				A8406CFF2BCB85170022A221 /* RoutesView.swift */,
-				A8406D132BCBC25A0022A221 /* RouteDetailView */,
+				A8406D132BCBC25A0022A221 /* RouteDetail */,
 				A8406D0C2BCBA21E0022A221 /* RouteCardView.swift */,
 				A8406D282BCCADF90022A221 /* MapView.swift */,
 			);
@@ -145,7 +145,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		A8406D132BCBC25A0022A221 /* RouteDetailView */ = {
+		A8406D132BCBC25A0022A221 /* RouteDetail */ = {
 			isa = PBXGroup;
 			children = (
 				A8406D0A2BCBA1F10022A221 /* RouteDetailView.swift */,
@@ -155,7 +155,7 @@
 				A8406D242BCC8EF20022A221 /* RouteSpecificStatisticView.swift */,
 				A8406D262BCCA9410022A221 /* RouteMapLegendView.swift */,
 			);
-			path = RouteDetailView;
+			path = RouteDetail;
 			sourceTree = "<group>";
 		};
 		A8406D1F2BCBE78C0022A221 /* Styles */ = {

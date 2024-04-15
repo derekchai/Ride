@@ -13,7 +13,8 @@ struct RouteDetailView: View {
     let route: Route
     
     @State private var showingSpeedColors: Bool = true
-    @State private var isDragging: Bool = false
+    @State private var showingElevationChartHistogram: Bool = false
+    @State private var selectedIndex: Int? = 0
     
     var body: some View {
         List {
@@ -38,9 +39,15 @@ struct RouteDetailView: View {
             }
             
             Section(header: Text("Elevation Profile")) {
-                RouteChartView(routePoints: route.points)
+                if let selectedIndex {
+                    Text("\(String($selectedIndex.wrappedValue!))")
+                } else {
+                    Text("")
+                }
+                RouteChartView(routePoints: route.points, showingHistogram: $showingElevationChartHistogram, selectedIndex: $selectedIndex)
                     .padding([.top, .bottom])
                     .frame(height: 250)
+                
             }
             
             Section(header: Text("Statistics")) {

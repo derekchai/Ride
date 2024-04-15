@@ -18,4 +18,8 @@ extension CLLocationDistance {
         
         return "\(String(format: "%.2f", kilometres)) km"
     }
+    
+    var kilometres: Double {
+        self / 1000
+    }
 }

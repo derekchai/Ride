@@ -99,7 +99,7 @@ extension [RoutePoint] {
         self.last?.timestamp
     }
     
-    /// The distance travelled (i.e. not displacement) between two indices of 
+    /// The distance travelled (i.e. not displacement) between two indices of
     /// `[RoutePoint]`, in metres.
     ///
     /// `i1 = 0` (starting point) by default.
@@ -115,5 +115,22 @@ extension [RoutePoint] {
             sum += locationA.distance(from: locationB)
         }
         return sum
+    }
+    
+    /// Returns a `[CLLocationDistance]` where each item is its distance
+    /// from the first point in metres, in ascending order.
+    var distances: [CLLocationDistance] {
+        var output: [CLLocationDistance] = []
+        
+        for i in 0..<self.count {
+            output.append(self.distanceBetween(i2: i))
+        }
+         return output
+    }
+    
+    /// Returns a `[CLLocationDistance]` where each item that point's
+    /// altitude.
+    var altitudes: [CLLocationDistance] {
+        self.map { $0.altitude }
     }
 }
