@@ -14,22 +14,22 @@ struct Route: Identifiable {
     let id: UUID
     
     var name: String
-    var routePoints: [RoutePoint]
+    var points: [RoutePoint]
     
     /// The average speed of the activity.
     @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var averageSpeed: CLLocationSpeed {
-        let sum = routePoints.reduce(0) { $0 + $1.speed }
-        return sum / Double(routePoints.count)
+        let sum = points.reduce(0) { $0 + $1.speed }
+        return sum / Double(points.count)
     }
     
     /// The total distance travelled during the activity.
     @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var totalDistance: CLLocationDistance {
         var sum: Double = 0
-        for i in 0..<routePoints.count - 1 {
-            let coordinateA = routePoints[i].coordinate
-            let coordinateB = routePoints[i + 1].coordinate
+        for i in 0..<points.count - 1 {
+            let coordinateA = points[i].coordinate
+            let coordinateB = points[i + 1].coordinate
             
             let locationA = CLLocation(latitude: coordinateA.latitude, longitude: coordinateA.longitude)
             let locationB = CLLocation(latitude: coordinateB.latitude, longitude: coordinateB.longitude)
@@ -43,9 +43,9 @@ struct Route: Identifiable {
     @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var totalAltitudeGain: CLLocationDistance {
         var sum: Double = 0
-        for i in 0..<routePoints.count - 1 {
-            let altitudeA = routePoints[i].altitude
-            let altitudeB = routePoints[i + 1].altitude
+        for i in 0..<points.count - 1 {
+            let altitudeA = points[i].altitude
+            let altitudeB = points[i + 1].altitude
             
             guard altitudeA < altitudeB else { continue }
             
@@ -58,9 +58,9 @@ struct Route: Identifiable {
     @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var totalAltitudeLoss: CLLocationDistance {
         var sum: Double = 0
-        for i in 0..<routePoints.count - 1 {
-            let altitudeA = routePoints[i].altitude
-            let altitudeB = routePoints[i + 1].altitude
+        for i in 0..<points.count - 1 {
+            let altitudeA = points[i].altitude
+            let altitudeB = points[i + 1].altitude
             
             guard altitudeA > altitudeB else { continue }
             
@@ -72,27 +72,27 @@ struct Route: Identifiable {
     /// The duration of the activity, in seconds.
     @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var duration: TimeInterval {
-        guard !routePoints.isEmpty else { return TimeInterval(0) }
+        guard !points.isEmpty else { return TimeInterval(0) }
         
-        return routePoints.last!.timestamp - routePoints.first!.timestamp
+        return points.last!.timestamp - points.first!.timestamp
     }
     
     /// The `Date` at which the activity began.
     @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var startTimestamp: Date? {
-        routePoints.first?.timestamp
+        points.first?.timestamp
     }
     
     /// The `Date` at which the activity finished.
     @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var endTimestamp: Date? {
-        routePoints.last?.timestamp
+        points.last?.timestamp
     }
     
     init(id: UUID = UUID(), name: String, routePoints: [RoutePoint]) {
         self.id = id
         self.name = name
-        self.routePoints = routePoints
+        self.points = routePoints
     }
 }
 

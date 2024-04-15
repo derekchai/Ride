@@ -60,5 +60,5 @@ struct RouteMapView: View {
 }
 
 #Preview {
-    RouteMapView(showingSpeedColors: .constant(true), points: Route.sampleRoute.routePoints)
+    RouteMapView(showingSpeedColors: .constant(true), points: Route.sampleRoute.points)
 }

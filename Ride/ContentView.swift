@@ -13,21 +13,17 @@ struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     
     var body: some View {
-        VStack {
-            Map(initialPosition: $locationManager.region.wrappedValue) {
-                UserAnnotation()
-                
-                MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
-                    .strokeStyle(style: .mapRouteOutline)
-                    .stroke(.white)
-                
-                MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
-                    .strokeStyle(style: .mapRouteLine)
-                    .stroke(.blue)
-            }
-            .mapControls {
-                MapCompass()
-            }
+        TabView {
+            RoutesView(routes: .constant(Route.sampleData))
+                .tabItem {
+                    Label("Routes", systemImage: "point.topleft.down.to.point.bottomright.curvepath")
+                }
+            
+            MapView()
+                .environmentObject(locationManager)
+                .tabItem {
+                    Label("Map", systemImage: "map")
+                }
         }
     }
 }

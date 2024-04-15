@@ -17,14 +17,14 @@ struct RouteDetailView: View {
     var body: some View {
         List {
             Section(header: Text("Overview")) {
-                RouteMapView(showingSpeedColors: $showingSpeedColors, points: route.routePoints)
+                RouteMapView(showingSpeedColors: $showingSpeedColors, points: route.points)
                     .frame(height: 300)
                     .listRowInsets(EdgeInsets())
                 
                 Toggle("Show speed colors", isOn: $showingSpeedColors)
                 
                 HStack {
-                    if let endTimestamp = route.routePoints.endTimestamp {
+                    if let endTimestamp = route.points.endTimestamp {
                         Text("Completed on \(endTimestamp.formatted())")
                             .font(.caption)
                             .padding([.bottom])
@@ -37,7 +37,7 @@ struct RouteDetailView: View {
             }
             
             Section(header: Text("Elevation Profile")) {
-                RouteChartView(routePoints: route.routePoints)
+                RouteChartView(routePoints: route.points)
                     .padding([.top, .bottom])
                     .frame(height: 250)
             }

@@ -27,6 +27,7 @@
 		A8406D232BCBE8350022A221 /* StrokeStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */; };
 		A8406D252BCC8EF20022A221 /* RouteSpecificStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D242BCC8EF20022A221 /* RouteSpecificStatisticView.swift */; };
 		A8406D272BCCA9420022A221 /* RouteMapLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D262BCCA9410022A221 /* RouteMapLegendView.swift */; };
+		A8406D292BCCADF90022A221 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D282BCCADF90022A221 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyleExtension.swift; sourceTree = "<group>"; };
 		A8406D242BCC8EF20022A221 /* RouteSpecificStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSpecificStatisticView.swift; sourceTree = "<group>"; };
 		A8406D262BCCA9410022A221 /* RouteMapLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapLegendView.swift; sourceTree = "<group>"; };
+		A8406D282BCCADF90022A221 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				A8406CFF2BCB85170022A221 /* RoutesView.swift */,
 				A8406D132BCBC25A0022A221 /* RouteDetailView */,
 				A8406D0C2BCBA21E0022A221 /* RouteCardView.swift */,
+				A8406D282BCCADF90022A221 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				A8406D272BCCA9420022A221 /* RouteMapLegendView.swift in Sources */,
 				A8406D232BCBE8350022A221 /* StrokeStyleExtension.swift in Sources */,
 				A8406D022BCB89270022A221 /* Route.swift in Sources */,
+				A8406D292BCCADF90022A221 /* MapView.swift in Sources */,
 				A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */,
 				A8406D1A2BCBE60F0022A221 /* RouteStatisticsView.swift in Sources */,
 				A8406D092BCB9F450022A221 /* TimeIntervalExtension.swift in Sources */,

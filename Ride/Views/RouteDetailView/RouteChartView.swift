@@ -25,5 +25,5 @@ struct RouteChartView: View {
 }
 
 #Preview {
-    RouteChartView(routePoints: Route.sampleRoute.routePoints)
+    RouteChartView(routePoints: Route.sampleRoute.points)
 }
