@@ -19,4 +19,10 @@ extension StrokeStyle {
         lineWidth: 12,
         lineCap: .round
     )
+    
+    static let routePreview = StrokeStyle(
+        lineWidth: 5,
+        lineCap: .round,
+        lineJoin: .round
+    )
 }

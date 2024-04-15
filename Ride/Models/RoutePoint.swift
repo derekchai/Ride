@@ -99,7 +99,8 @@ extension [RoutePoint] {
         self.last?.timestamp
     }
     
-    /// The distance travelled (i.e. not displacement) between two indices of `[RoutePoint]`, in metres.
+    /// The distance travelled (i.e. not displacement) between two indices of 
+    /// `[RoutePoint]`, in metres.
     ///
     /// `i1 = 0` (starting point) by default.
     func distanceBetween(i1: Int = 0, i2: Int)  -> CLLocationDistance {

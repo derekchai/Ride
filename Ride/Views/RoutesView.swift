@@ -7,28 +7,40 @@
 
 import SwiftUI
 import CoreLocation
+import MapKit
 
 struct RoutesView: View {
     @Binding var routes: [Route]
     
     var body: some View {
         NavigationStack {
-            VStack {
-                List($routes) { $route in
-                    NavigationLink(destination: RouteDetailView(route: route)) {
-                        RouteCardView(route: route)
+            ZStack(alignment: .bottom) {
+                VStack {
+                    List($routes) { $route in
+                        Section (header: Text(route.points.endTimestamp?.formatted() ?? "No date")) {
+                            Map {
+                                // TODO: - Show route
+                            }
+                                .listRowInsets(EdgeInsets())
+                                .frame(height: 200)
+                                .allowsHitTesting(false)
+                            
+                            
+                            NavigationLink(destination: RouteDetailView(route: route)) {
+                                    RouteCardView(route: route)
+                            }
+                        }
                     }
+                    .navigationTitle("Routes")
                 }
-                .navigationTitle("Routes")
                 
-                HStack {
-                    Button("Go", systemImage: "figure.outdoor.cycle") {
-                        
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.green)
+                Button("Go", systemImage: "figure.outdoor.cycle") {
+                    
                 }
-            } // VStack
+                .buttonStyle(.borderedProminent)
+                .tint(.green)
+                .padding(.bottom)
+            }
         } // NavigationStack
     }
 }

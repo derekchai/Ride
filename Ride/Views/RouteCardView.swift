@@ -11,42 +11,39 @@ struct RouteCardView: View {
     let route: Route
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(route.name)
-                .font(.headline)
-                .accessibilityAddTraits(.isHeader)
-            
-            if let finishTimestamp = route.startTimestamp {
-                Text(finishTimestamp.formatted(date: .complete, time: .shortened))
-                    .font(.caption)
-            }
-    
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Distance")
-                        .font(.caption)
-                    Text("\(route.totalDistance.asRoundedKmOrM())")
+        HStack {
+            VStack(alignment: .leading) {
+                Text(route.name)
+                    .font(.headline)
+                    .accessibilityAddTraits(.isHeader)
+        
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Distance")
+                            .font(.caption)
+                        Text("\(route.totalDistance.asRoundedKmOrM())")
+                    }
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .leading) {
+                        Text("Alt. gain")
+                            .font(.caption)
+                        Text("\(Int(route.totalAltitudeGain)) m")
+                    }
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .leading) {
+                        Text("Duration")
+                            .font(.caption)
+                        Text("\(route.duration.asHMorMS)")
+                    }
                 }
-                
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    Text("Alt. gain")
-                        .font(.caption)
-                    Text("\(Int(route.totalAltitudeGain)) m")
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    Text("Duration")
-                        .font(.caption)
-                    Text("\(route.duration.asHMorMS)")
-                }
-            }
-            .padding([.top])
-        } // VStack
-        .padding()
+                .padding([.top])
+            } // VStack
+            .padding()
+        }
     }
 }
 

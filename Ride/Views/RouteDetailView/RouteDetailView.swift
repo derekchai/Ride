@@ -13,6 +13,7 @@ struct RouteDetailView: View {
     let route: Route
     
     @State private var showingSpeedColors: Bool = true
+    @State private var isDragging: Bool = false
     
     var body: some View {
         List {
@@ -43,9 +44,12 @@ struct RouteDetailView: View {
             }
             
             Section(header: Text("Statistics")) {
-                RouteSpecificStatisticView(title: "Max. speed", value: "60.3 km/h", systemImage: "hare")
-                RouteSpecificStatisticView(title: "Max. elevation", value: "160 m", systemImage: "arrowtriangle.up")
-                RouteSpecificStatisticView(title: "Min. elevation", value: "0 m", systemImage: "arrowtriangle.down")
+                RouteSpecificStatisticView(title: "Max. speed", value: "60.3 km/h", systemImage: "hare.fill")
+                RouteSpecificStatisticView(title: "Max. elevation", value: "160 m", systemImage: "arrowtriangle.up.fill")
+                RouteSpecificStatisticView(title: "Min. elevation", value: "0 m", systemImage: "arrowtriangle.down.fill")
+                
+                RouteSpecificStatisticView(title: "Start", value: route.points.startTimestamp!.formatted(), systemImage: "hourglass.bottomhalf.filled")
+                RouteSpecificStatisticView(title: "End", value: route.points.endTimestamp!.formatted(), systemImage: "hourglass.tophalf.filled")
                 
             }
         } // List
