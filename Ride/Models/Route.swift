@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreLocation
+import MapKit
+import SwiftUI
 
 struct Route: Identifiable {
     let id: UUID
@@ -15,12 +17,14 @@ struct Route: Identifiable {
     var routePoints: [RoutePoint]
     
     /// The average speed of the activity.
+    @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var averageSpeed: CLLocationSpeed {
         let sum = routePoints.reduce(0) { $0 + $1.speed }
         return sum / Double(routePoints.count)
     }
     
     /// The total distance travelled during the activity.
+    @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var totalDistance: CLLocationDistance {
         var sum: Double = 0
         for i in 0..<routePoints.count - 1 {
@@ -36,6 +40,7 @@ struct Route: Identifiable {
     }
     
     /// The altitude ascended, in metres.
+    @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var totalAltitudeGain: CLLocationDistance {
         var sum: Double = 0
         for i in 0..<routePoints.count - 1 {
@@ -50,6 +55,7 @@ struct Route: Identifiable {
     }
     
     /// The altitude descended, in metres.
+    @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var totalAltitudeLoss: CLLocationDistance {
         var sum: Double = 0
         for i in 0..<routePoints.count - 1 {
@@ -64,6 +70,7 @@ struct Route: Identifiable {
     }
     
     /// The duration of the activity, in seconds.
+    @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var duration: TimeInterval {
         guard !routePoints.isEmpty else { return TimeInterval(0) }
         
@@ -71,11 +78,13 @@ struct Route: Identifiable {
     }
     
     /// The `Date` at which the activity began.
+    @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var startTimestamp: Date? {
         routePoints.first?.timestamp
     }
     
     /// The `Date` at which the activity finished.
+    @available(*, deprecated, message: "Use [RoutePoint]'s extension instead.")
     var endTimestamp: Date? {
         routePoints.last?.timestamp
     }
@@ -86,6 +95,8 @@ struct Route: Identifiable {
         self.routePoints = routePoints
     }
 }
+
+
 
 extension Route {
     static let sampleRoute = Route(

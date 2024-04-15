@@ -12,27 +12,17 @@ import MapKit
 struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     
-    private let routeLineStyle = StrokeStyle(
-        lineWidth: 8,
-        lineCap: .round
-    )
-    
-    private let routeOutlineStyle = StrokeStyle(
-        lineWidth: 12,
-        lineCap: .round
-    )
-    
     var body: some View {
         VStack {
             Map(initialPosition: $locationManager.region.wrappedValue) {
                 UserAnnotation()
                 
                 MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
-                    .strokeStyle(style: routeOutlineStyle)
+                    .strokeStyle(style: .mapRouteOutline)
                     .stroke(.white)
                 
                 MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
-                    .strokeStyle(style: routeLineStyle)
+                    .strokeStyle(style: .mapRouteLine)
                     .stroke(.blue)
             }
             .mapControls {

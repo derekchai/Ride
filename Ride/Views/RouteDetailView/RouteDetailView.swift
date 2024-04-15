@@ -12,55 +12,44 @@ import MapKit
 struct RouteDetailView: View {
     let route: Route
     
+    @State private var showingSpeedColors: Bool = true
+    
     var body: some View {
-        Map {}
-        
-        VStack (alignment: .center) {
-            Text(route.totalDistance.asRoundedKmOrM())
-                .font(.title)
-                .padding([.bottom])
-            
-            VStack {
-                HStack {
-                    HStack {
-                        Image(systemName: "stopwatch")
-                        Text(route.duration.asHMorMS)
-                    }
-                    
-                    Spacer()
-                    
-                    HStack {
-                        Text("\(String(format: "%.1f", route.averageSpeed)) km/h")
-                        Image(systemName: "figure.outdoor.cycle")
-                    }
-                }
-                .padding([.bottom])
+        List {
+            Section(header: Text("Overview")) {
+                RouteMapView(showingSpeedColors: $showingSpeedColors, points: route.routePoints)
+                    .frame(height: 300)
+                    .listRowInsets(EdgeInsets())
+                
+                Toggle("Show speed colors", isOn: $showingSpeedColors)
                 
                 HStack {
-                    HStack {
-                        Image(systemName: "arrow.up.forward")
-                        Text("\(String(format: "%.0f", route.totalAltitudeGain)) m")
+                    if let endTimestamp = route.routePoints.endTimestamp {
+                        Text("Completed on \(endTimestamp.formatted())")
+                            .font(.caption)
+                            .padding([.bottom])
                     }
-                    
                     Spacer()
-                    
-                    HStack {
-                        Text("\(String(format: "%.0f", route.totalAltitudeLoss)) m")
-                        Image(systemName: "arrow.down.forward")
-                    }
                 }
+                
+                
+                RouteStatisticsView(route: route)
             }
             
-            RouteChartView(routePoints: route.routePoints)
-            
-            if let endTimestamp = route.endTimestamp {
-                Text("Completed on \(endTimestamp.formatted())")
-                    .font(.subheadline)
-                    .padding([.bottom])
+            Section(header: Text("Elevation Profile")) {
+                RouteChartView(routePoints: route.routePoints)
+                    .padding([.top, .bottom])
+                    .frame(height: 250)
             }
-        }
-            .padding()
-            .navigationTitle(route.name)
+            
+            Section(header: Text("Statistics")) {
+                RouteSpecificStatisticView(title: "Max. speed", value: "60.3 km/h", systemImage: "hare")
+                RouteSpecificStatisticView(title: "Max. elevation", value: "160 m", systemImage: "arrowtriangle.up")
+                RouteSpecificStatisticView(title: "Min. elevation", value: "0 m", systemImage: "arrowtriangle.down")
+                
+            }
+        } // List
+        .navigationTitle(route.name)
     }
 }
 

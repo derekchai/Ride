@@ -12,12 +12,15 @@ struct RouteChartView: View {
     let routePoints: [RoutePoint]
     
     var body: some View {
-        Chart(routePoints) { point in
-            LineMark(
-                x: .value("", point.timestamp),
-                y: .value("", point.speed)
-            )
+        Chart() {
+            ForEach(0..<routePoints.count, id: \.self) {
+                LineMark(
+                    x: .value("km", routePoints.distanceBetween(i2: $0) / 1000),
+                    y: .value("m", routePoints[$0].altitude))
+            }
         }
+        .chartXAxisLabel("km")
+        .chartYAxisLabel("m")
     }
 }
 
