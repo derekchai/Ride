@@ -31,12 +31,23 @@ struct MapView: View {
             }
             
 //            MapControlsView(selectedActivityMode: $selectedActivityMode)
-            CurrentStatsView(
-                speed: $locationManager.routePoints.last?.speed ?? .constant(0),
-                distanceTravelled: .constant(locationManager.routePoints.totalDistance),
-                timeElapsed: .constant(locationManager.routePoints.duration),
-                elevationGained: .constant(locationManager.routePoints.totalAltitudeGain)
-            )
+            
+            if !locationManager.routePoints.isEmpty {
+                CurrentStatsView(
+                    speed: $locationManager.routePoints.last?.speed ?? .constant(0),
+                    distanceTravelled: .constant(locationManager.routePoints.totalDistance),
+                    timeElapsed: .constant(locationManager.routePoints.duration),
+                    elevationGained: .constant(locationManager.routePoints.totalAltitudeGain)
+                )
+            }
+            
+            Button("Start updating") {
+                locationManager.startUpdatingLocation()
+            }
+            
+            Button("Stop updating") {
+                locationManager.stopUpdatingLocation()
+            }
         }
     }
 }

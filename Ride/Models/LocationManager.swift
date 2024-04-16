@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 import SwiftUI
+import OSLog
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManger = CLLocationManager()
@@ -20,6 +21,8 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     )
     
     @Published var routePoints: [RoutePoint] = []
+    
+    private let log = Logger()
     
     override init() {
         super.init()
@@ -34,14 +37,35 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         switch locationManger.authorizationStatus {
         case .authorizedWhenInUse:
 //                locationManger.requestLocation()
-            locationManger.startUpdatingLocation()
-            locationManger.startUpdatingHeading()
+//            locationManger.startUpdatingLocation()
+//            locationManger.startUpdatingHeading()
+            log.info("Location authorization status authorized when in use.")
         case .notDetermined:
             locationManger.startUpdatingLocation()
             locationManger.requestWhenInUseAuthorization()
+            log.notice("Location authorization status not determined.")
         default:
             break
         }
+    }
+    
+    func startUpdatingLocation() {
+        switch locationManger.authorizationStatus {
+        case .authorizedWhenInUse:
+            locationManger.startUpdatingLocation()
+            locationManger.startUpdatingHeading()
+            log.info("Starting updating location and heading.")
+        case .notDetermined:
+            setup()
+        default:
+            break
+        }
+    }
+    
+    func stopUpdatingLocation() {
+        locationManger.stopUpdatingLocation()
+        locationManger.stopUpdatingHeading()
+        log.info("Stopping updating location and heading.")
     }
 }
 
@@ -52,7 +76,7 @@ extension LocationManager {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Something went wrong: \(error)")
+        log.error("LocationManager error: \(error)")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -67,7 +91,7 @@ extension LocationManager {
         
         guard let lastLocation = locations.last else { return }
         
-        print("Coordinate: \(lastLocation.coordinate.latitude), \(lastLocation.coordinate.longitude). Speed: \(lastLocation.speed * 3.6) km/h. Alt.: \(lastLocation.altitude) m.")
+        log.debug("[\(lastLocation.coordinate.latitude), \(lastLocation.coordinate.longitude)] \(lastLocation.speed.asKmH) km/h. Alt: \(lastLocation.altitude) m.")
         
         routePoints.append(RoutePoint(coordinate: lastLocation.coordinate, speed: lastLocation.speed, altitude: lastLocation.altitude, timestamp: lastLocation.timestamp))
     }
