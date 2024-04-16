@@ -20,14 +20,24 @@
 		A8406D0B2BCBA1F10022A221 /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D0A2BCBA1F10022A221 /* RouteDetailView.swift */; };
 		A8406D0D2BCBA21E0022A221 /* RouteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D0C2BCBA21E0022A221 /* RouteCardView.swift */; };
 		A8406D0F2BCBA6480022A221 /* CLLocationDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D0E2BCBA6480022A221 /* CLLocationDistanceExtension.swift */; };
-		A8406D152BCBC2710022A221 /* RouteChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D142BCBC2710022A221 /* RouteChartView.swift */; };
+		A8406D152BCBC2710022A221 /* ElevationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D142BCBC2710022A221 /* ElevationChartView.swift */; };
 		A8406D1A2BCBE60F0022A221 /* RouteStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D192BCBE60F0022A221 /* RouteStatisticsView.swift */; };
 		A8406D1C2BCBE6C10022A221 /* RouteMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D1B2BCBE6C10022A221 /* RouteMapView.swift */; };
 		A8406D212BCBE7A20022A221 /* RouteLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D202BCBE7A20022A221 /* RouteLineStyle.swift */; };
 		A8406D232BCBE8350022A221 /* StrokeStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */; };
 		A8406D252BCC8EF20022A221 /* RouteSpecificStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D242BCC8EF20022A221 /* RouteSpecificStatisticView.swift */; };
-		A8406D272BCCA9420022A221 /* RouteMapLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D262BCCA9410022A221 /* RouteMapLegendView.swift */; };
+		A8406D272BCCA9420022A221 /* MapSpeedLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */; };
 		A8406D292BCCADF90022A221 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D282BCCADF90022A221 /* MapView.swift */; };
+		A8406D322BCDCDFF0022A221 /* ActivityMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D312BCDCDFF0022A221 /* ActivityMode.swift */; };
+		A8406D372BCDD4280022A221 /* MapControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D362BCDD4280022A221 /* MapControlsView.swift */; };
+		A8406D392BCDD5020022A221 /* CurrentStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D382BCDD5020022A221 /* CurrentStatsView.swift */; };
+		A8406D3B2BCDD57A0022A221 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D3A2BCDD57A0022A221 /* FontExtension.swift */; };
+		A88C31812BCE1799000B70EC /* ProgressViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31802BCE1799000B70EC /* ProgressViewStyles.swift */; };
+		A88C31832BCE1806000B70EC /* SpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31822BCE1806000B70EC /* SpeedometerView.swift */; };
+		A88C31852BCE5041000B70EC /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31842BCE5041000B70EC /* ModelData.swift */; };
+		A88C31872BCE5F79000B70EC /* CLLocationSpeedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31862BCE5F79000B70EC /* CLLocationSpeedExtension.swift */; };
+		A88C318A2BCE6085000B70EC /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31892BCE6085000B70EC /* DoubleExtension.swift */; };
+		A88C318E2BCE7C76000B70EC /* SpeedometerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C318D2BCE7C76000B70EC /* SpeedometerBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,14 +55,24 @@
 		A8406D0A2BCBA1F10022A221 /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
 		A8406D0C2BCBA21E0022A221 /* RouteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCardView.swift; sourceTree = "<group>"; };
 		A8406D0E2BCBA6480022A221 /* CLLocationDistanceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistanceExtension.swift; sourceTree = "<group>"; };
-		A8406D142BCBC2710022A221 /* RouteChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteChartView.swift; sourceTree = "<group>"; };
+		A8406D142BCBC2710022A221 /* ElevationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationChartView.swift; sourceTree = "<group>"; };
 		A8406D192BCBE60F0022A221 /* RouteStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStatisticsView.swift; sourceTree = "<group>"; };
 		A8406D1B2BCBE6C10022A221 /* RouteMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapView.swift; sourceTree = "<group>"; };
 		A8406D202BCBE7A20022A221 /* RouteLineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLineStyle.swift; sourceTree = "<group>"; };
 		A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyleExtension.swift; sourceTree = "<group>"; };
 		A8406D242BCC8EF20022A221 /* RouteSpecificStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSpecificStatisticView.swift; sourceTree = "<group>"; };
-		A8406D262BCCA9410022A221 /* RouteMapLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapLegendView.swift; sourceTree = "<group>"; };
+		A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSpeedLegendView.swift; sourceTree = "<group>"; };
 		A8406D282BCCADF90022A221 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		A8406D312BCDCDFF0022A221 /* ActivityMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMode.swift; sourceTree = "<group>"; };
+		A8406D362BCDD4280022A221 /* MapControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControlsView.swift; sourceTree = "<group>"; };
+		A8406D382BCDD5020022A221 /* CurrentStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStatsView.swift; sourceTree = "<group>"; };
+		A8406D3A2BCDD57A0022A221 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		A88C31802BCE1799000B70EC /* ProgressViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyles.swift; sourceTree = "<group>"; };
+		A88C31822BCE1806000B70EC /* SpeedometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerView.swift; sourceTree = "<group>"; };
+		A88C31842BCE5041000B70EC /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		A88C31862BCE5F79000B70EC /* CLLocationSpeedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationSpeedExtension.swift; sourceTree = "<group>"; };
+		A88C31892BCE6085000B70EC /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		A88C318D2BCE7C76000B70EC /* SpeedometerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +105,12 @@
 		A8406CE72BCA06990022A221 /* Ride */ = {
 			isa = PBXGroup;
 			children = (
+				A8406CE82BCA06990022A221 /* RideApp.swift */,
+				A8406CEA2BCA06990022A221 /* ContentView.swift */,
 				A8406D1F2BCBE78C0022A221 /* Styles */,
 				A8406D052BCB9B760022A221 /* Utils */,
-				A8406CEA2BCA06990022A221 /* ContentView.swift */,
 				A8406CFE2BCB84ED0022A221 /* Views */,
-				A8406CFD2BCB849F0022A221 /* Managers */,
 				A8406CF62BCA06A30022A221 /* Models */,
-				A8406CE82BCA06990022A221 /* RideApp.swift */,
 				A8406CEC2BCA069A0022A221 /* Assets.xcassets */,
 				A8406CEE2BCA069A0022A221 /* Preview Content */,
 			);
@@ -109,18 +128,13 @@
 		A8406CF62BCA06A30022A221 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A8406CFB2BCB68440022A221 /* LocationManager.swift */,
 				A8406D012BCB89270022A221 /* Route.swift */,
 				A8406D032BCB922B0022A221 /* RoutePoint.swift */,
+				A8406D312BCDCDFF0022A221 /* ActivityMode.swift */,
+				A88C31842BCE5041000B70EC /* ModelData.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A8406CFD2BCB849F0022A221 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				A8406CFB2BCB68440022A221 /* LocationManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		A8406CFE2BCB84ED0022A221 /* Views */ = {
@@ -129,7 +143,7 @@
 				A8406CFF2BCB85170022A221 /* RoutesView.swift */,
 				A8406D132BCBC25A0022A221 /* RouteDetail */,
 				A8406D0C2BCBA21E0022A221 /* RouteCardView.swift */,
-				A8406D282BCCADF90022A221 /* MapView.swift */,
+				A8406D352BCDD40B0022A221 /* Map */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,7 +154,10 @@
 				A8406D062BCB9B7F0022A221 /* DateExtension.swift */,
 				A8406D082BCB9F450022A221 /* TimeIntervalExtension.swift */,
 				A8406D0E2BCBA6480022A221 /* CLLocationDistanceExtension.swift */,
+				A88C31862BCE5F79000B70EC /* CLLocationSpeedExtension.swift */,
 				A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */,
+				A8406D3A2BCDD57A0022A221 /* FontExtension.swift */,
+				A88C31892BCE6085000B70EC /* DoubleExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,11 +166,11 @@
 			isa = PBXGroup;
 			children = (
 				A8406D0A2BCBA1F10022A221 /* RouteDetailView.swift */,
-				A8406D142BCBC2710022A221 /* RouteChartView.swift */,
+				A8406D142BCBC2710022A221 /* ElevationChartView.swift */,
 				A8406D192BCBE60F0022A221 /* RouteStatisticsView.swift */,
 				A8406D1B2BCBE6C10022A221 /* RouteMapView.swift */,
 				A8406D242BCC8EF20022A221 /* RouteSpecificStatisticView.swift */,
-				A8406D262BCCA9410022A221 /* RouteMapLegendView.swift */,
+				A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */,
 			);
 			path = RouteDetail;
 			sourceTree = "<group>";
@@ -161,9 +178,22 @@
 		A8406D1F2BCBE78C0022A221 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				A88C31802BCE1799000B70EC /* ProgressViewStyles.swift */,
 				A8406D202BCBE7A20022A221 /* RouteLineStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		A8406D352BCDD40B0022A221 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A8406D282BCCADF90022A221 /* MapView.swift */,
+				A8406D362BCDD4280022A221 /* MapControlsView.swift */,
+				A8406D382BCDD5020022A221 /* CurrentStatsView.swift */,
+				A88C31822BCE1806000B70EC /* SpeedometerView.swift */,
+				A88C318D2BCE7C76000B70EC /* SpeedometerBar.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,22 +269,32 @@
 				A8406D002BCB85170022A221 /* RoutesView.swift in Sources */,
 				A8406D0B2BCBA1F10022A221 /* RouteDetailView.swift in Sources */,
 				A8406D0D2BCBA21E0022A221 /* RouteCardView.swift in Sources */,
+				A88C31852BCE5041000B70EC /* ModelData.swift in Sources */,
+				A8406D392BCDD5020022A221 /* CurrentStatsView.swift in Sources */,
 				A8406D072BCB9B7F0022A221 /* DateExtension.swift in Sources */,
-				A8406D152BCBC2710022A221 /* RouteChartView.swift in Sources */,
+				A8406D152BCBC2710022A221 /* ElevationChartView.swift in Sources */,
 				A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */,
 				A8406D0F2BCBA6480022A221 /* CLLocationDistanceExtension.swift in Sources */,
 				A8406D042BCB922B0022A221 /* RoutePoint.swift in Sources */,
 				A8406CE92BCA06990022A221 /* RideApp.swift in Sources */,
 				A8406D1C2BCBE6C10022A221 /* RouteMapView.swift in Sources */,
+				A88C318A2BCE6085000B70EC /* DoubleExtension.swift in Sources */,
+				A88C31872BCE5F79000B70EC /* CLLocationSpeedExtension.swift in Sources */,
 				A8406D212BCBE7A20022A221 /* RouteLineStyle.swift in Sources */,
 				A8406D252BCC8EF20022A221 /* RouteSpecificStatisticView.swift in Sources */,
-				A8406D272BCCA9420022A221 /* RouteMapLegendView.swift in Sources */,
+				A8406D272BCCA9420022A221 /* MapSpeedLegendView.swift in Sources */,
 				A8406D232BCBE8350022A221 /* StrokeStyleExtension.swift in Sources */,
 				A8406D022BCB89270022A221 /* Route.swift in Sources */,
 				A8406D292BCCADF90022A221 /* MapView.swift in Sources */,
+				A8406D372BCDD4280022A221 /* MapControlsView.swift in Sources */,
+				A88C31832BCE1806000B70EC /* SpeedometerView.swift in Sources */,
 				A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */,
 				A8406D1A2BCBE60F0022A221 /* RouteStatisticsView.swift in Sources */,
 				A8406D092BCB9F450022A221 /* TimeIntervalExtension.swift in Sources */,
+				A8406D322BCDCDFF0022A221 /* ActivityMode.swift in Sources */,
+				A8406D3B2BCDD57A0022A221 /* FontExtension.swift in Sources */,
+				A88C31812BCE1799000B70EC /* ProgressViewStyles.swift in Sources */,
+				A88C318E2BCE7C76000B70EC /* SpeedometerBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

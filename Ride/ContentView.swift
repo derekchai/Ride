@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 
 struct ContentView: View {
-    @StateObject var locationManager = LocationManager()
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         TabView {

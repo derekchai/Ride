@@ -24,37 +24,34 @@ struct RouteDetailView: View {
     
     var body: some View {
         List {
+            // MARK: - Overview
             Section(header: Text("Overview")) {
+                RouteStatisticsView(route: route)
+                
+                if let endTimestamp = route.points.endTimestamp {
+                    Text("Completed on \(endTimestamp.formatted())")
+                        .font(.caption)
+                        .padding([.bottom])
+                }
+            }
+            
+            // MARK: - Map
+            Section(header: Text("Map")) {
                 RouteMapView(showingSpeedColors: $showingSpeedColors, distance: $mapSliderValue, points: route.points)
                     .frame(height: 300)
                     .listRowInsets(EdgeInsets())
                 
+                Toggle("Show speed colors", isOn: $showingSpeedColors)
                 Slider(
                     value: $mapSliderValue,
                     in: 0...route.points.totalDistance
                 
                 )
-                
-//                Text("mapSliderValue \(mapSliderValue)")
-//                Text("altitude of pointBeforeDistance \(route.points.pointBeforeDistance(distance: mapSliderValue)!.altitude)")
-                
-                Toggle("Show speed colors", isOn: $showingSpeedColors)
-                
-                HStack {
-                    if let endTimestamp = route.points.endTimestamp {
-                        Text("Completed on \(endTimestamp.formatted())")
-                            .font(.caption)
-                            .padding([.bottom])
-                    }
-                    Spacer()
-                }
-                
-                
-                RouteStatisticsView(route: route)
             }
             
+            // MARK: - Elevation Profile
             Section(header: Text("Elevation Profile")) {
-                if let selectedIndex {
+                if selectedIndex != nil {
                     Text("\(String($selectedIndex.wrappedValue!))")
                 } else {
                     Text("")
@@ -65,6 +62,7 @@ struct RouteDetailView: View {
                 
             }
             
+            // MARK: - Statistics
             Section(header: Text("Statistics")) {
                 RouteSpecificStatisticView(title: "Max. speed", value: "60.3 km/h", systemImage: "hare.fill")
                 RouteSpecificStatisticView(title: "Max. elevation", value: "160 m", systemImage: "arrowtriangle.up.fill")

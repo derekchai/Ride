@@ -18,4 +18,11 @@ extension TimeInterval {
         
         return formatter.string(from: self)!
     }
+    
+    var asHMS: String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        
+        return formatter.string(from: self)!
+    }
 }

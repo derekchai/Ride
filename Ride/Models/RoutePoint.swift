@@ -25,8 +25,14 @@ struct RoutePoint: Identifiable, Equatable {
     var id: UUID
     
     var coordinate: CLLocationCoordinate2D
+    
+    /// Speed in metres per second.
     var speed: CLLocationSpeed
+    
+    /// Altitude in metres.
     var altitude: CLLocationDistance
+    
+    /// The timestamp when this point was recorded.
     var timestamp: Date
     
     init(id: UUID = UUID(), coordinate: CLLocationCoordinate2D, speed: CLLocationSpeed, altitude: CLLocationDistance, timestamp: Date) {
@@ -40,7 +46,7 @@ struct RoutePoint: Identifiable, Equatable {
 
 extension [RoutePoint] {
     /// Returns the maximum `speed` from the array of `RoutePoint`s.
-    var maxSpeed: Double? {
+    var maxSpeed: CLLocationSpeed? {
         let speeds = self.map { $0.speed }
         return speeds.max()
     }

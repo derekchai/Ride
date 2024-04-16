@@ -33,13 +33,6 @@ struct RoutesView: View {
                     }
                     .navigationTitle("Routes")
                 }
-                
-                Button("Go", systemImage: "figure.outdoor.cycle") {
-                    
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.green)
-                .padding(.bottom)
             }
         } // NavigationStack
     }

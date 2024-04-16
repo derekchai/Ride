@@ -19,7 +19,13 @@ extension CLLocationDistance {
         return "\(String(format: "%.2f", kilometres)) km"
     }
     
-    var kilometres: Double {
+    /// Returns the distance, given in m, as km.
+    var asKm: Double {
         self / 1000
+    }
+    
+    /// Returns the distance, given in km, as m.
+    var km: CLLocationDistance {
+        self * 1000
     }
 }
