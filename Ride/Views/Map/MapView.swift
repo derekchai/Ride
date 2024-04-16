@@ -12,6 +12,7 @@ struct MapView: View {
     @EnvironmentObject var locationManager: LocationManager
     
     @State private var selectedActivityMode: ActivityMode = .cycle
+    @State private var hasStartedTracking = false
     
     var body: some View {
         VStack {
@@ -30,23 +31,26 @@ struct MapView: View {
                 MapCompass()
             }
             
-//            MapControlsView(selectedActivityMode: $selectedActivityMode)
-            
-            if !locationManager.routePoints.isEmpty {
+            if !locationManager.routePoints.isEmpty && hasStartedTracking {
                 CurrentStatsView(
                     speed: $locationManager.routePoints.last?.speed ?? .constant(0),
                     distanceTravelled: .constant(locationManager.routePoints.totalDistance),
                     timeElapsed: .constant(locationManager.routePoints.duration),
                     elevationGained: .constant(locationManager.routePoints.totalAltitudeGain)
                 )
-            }
-            
-            Button("Start updating") {
-                locationManager.startUpdatingLocation()
-            }
-            
-            Button("Stop updating") {
-                locationManager.stopUpdatingLocation()
+                
+                Button("Stop") {
+                    locationManager.stopUpdatingLocation()
+                    hasStartedTracking = false
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+                
+            } else {
+                MapControlsView(selectedActivityMode: $selectedActivityMode, goButtonPressed: {
+                    locationManager.startUpdatingLocation()
+                    hasStartedTracking = true
+                })
             }
         }
     }

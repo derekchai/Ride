@@ -10,6 +10,8 @@ import SwiftUI
 struct MapControlsView: View {
     @Binding var selectedActivityMode: ActivityMode
     
+    var goButtonPressed: () -> ()
+    
     var body: some View {
         Picker("Activity Mode", selection: $selectedActivityMode) {
             ForEach(ActivityMode.allCases) { mode in
@@ -21,7 +23,7 @@ struct MapControlsView: View {
         .padding([.leading, .trailing])
         
         Button("Go") {
-            
+            self.goButtonPressed()
         }
         .buttonStyle(.borderedProminent)
         .padding(.bottom)
@@ -29,5 +31,5 @@ struct MapControlsView: View {
 }
 
 #Preview {
-    MapControlsView(selectedActivityMode: .constant(.cycle))
+    MapControlsView(selectedActivityMode: .constant(.cycle), goButtonPressed: {})
 }
