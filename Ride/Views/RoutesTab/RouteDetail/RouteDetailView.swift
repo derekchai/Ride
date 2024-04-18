@@ -9,24 +9,24 @@ import SwiftUI
 import Charts
 import MapKit
 
+/// A `View` of an individual route's specific details.
+///
+/// This `View` shows the route's key statistics, an interactive map, elevation
+/// profile, and more detailed statistics.
 struct RouteDetailView: View {
     let route: Route
     
     @State private var showingSpeedColors: Bool = true
     @State private var showingElevationChartHistogram: Bool = false
     @State private var selectedIndex: Int? = 0
-//    @State private var mapIndex: Int = 0
     
     @State private var mapSliderValue: Double = 0
-    
-    
-    
     
     var body: some View {
         List {
             // MARK: - Overview
             Section(header: Text("Overview")) {
-                RouteStatisticsView(route: route)
+                RouteStatsView(points: route.points)
                 
                 if let endTimestamp = route.points.endTimestamp {
                     Text("Completed on \(endTimestamp.formatted())")
@@ -56,7 +56,7 @@ struct RouteDetailView: View {
                 } else {
                     Text("")
                 }
-                RouteChartView(routePoints: route.points, showingHistogram: $showingElevationChartHistogram, selectedIndex: $selectedIndex)
+                ElevationChartView(routePoints: route.points, showingHistogram: $showingElevationChartHistogram, selectedIndex: $selectedIndex)
                     .padding([.top, .bottom])
                     .frame(height: 250)
                 
@@ -64,12 +64,12 @@ struct RouteDetailView: View {
             
             // MARK: - Statistics
             Section(header: Text("Statistics")) {
-                RouteSpecificStatisticView(title: "Max. speed", value: "60.3 km/h", systemImage: "hare.fill")
-                RouteSpecificStatisticView(title: "Max. elevation", value: "160 m", systemImage: "arrowtriangle.up.fill")
-                RouteSpecificStatisticView(title: "Min. elevation", value: "0 m", systemImage: "arrowtriangle.down.fill")
+                SpecificStatView(title: "Max. speed", value: "60.3 km/h", systemImage: "hare.fill")
+                SpecificStatView(title: "Max. elevation", value: "160 m", systemImage: "arrowtriangle.up.fill")
+                SpecificStatView(title: "Min. elevation", value: "0 m", systemImage: "arrowtriangle.down.fill")
                 
-                RouteSpecificStatisticView(title: "Start", value: route.points.startTimestamp!.formatted(), systemImage: "hourglass.bottomhalf.filled")
-                RouteSpecificStatisticView(title: "End", value: route.points.endTimestamp!.formatted(), systemImage: "hourglass.tophalf.filled")
+                SpecificStatView(title: "Start", value: route.points.startTimestamp!.formatted(), systemImage: "hourglass.bottomhalf.filled")
+                SpecificStatView(title: "End", value: route.points.endTimestamp!.formatted(), systemImage: "hourglass.tophalf.filled")
                 
             }
         } // List

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MapControlsView: View {
+struct OutOfActivityView: View {
     @Binding var selectedActivityMode: ActivityMode
     
     var goButtonPressed: () -> ()
@@ -31,5 +31,5 @@ struct MapControlsView: View {
 }
 
 #Preview {
-    MapControlsView(selectedActivityMode: .constant(.cycle), goButtonPressed: {})
+    OutOfActivityView(selectedActivityMode: .constant(.cycle), goButtonPressed: {})
 }

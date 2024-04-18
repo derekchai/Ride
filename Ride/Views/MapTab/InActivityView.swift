@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreLocation
 
-struct CurrentStatsView: View {
+struct InActivityView: View {
     @Binding var speed: CLLocationSpeed
     @Binding var distanceTravelled: CLLocationDistance
     @Binding var timeElapsed: TimeInterval
@@ -46,7 +46,7 @@ struct CurrentStatsView: View {
 }
 
 #Preview {
-    CurrentStatsView(
+    InActivityView(
         speed: .constant(17.2),
         distanceTravelled: .constant(32152),
         timeElapsed: .constant(TimeInterval(5020)),

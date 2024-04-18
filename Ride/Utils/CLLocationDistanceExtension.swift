@@ -9,6 +9,9 @@ import Foundation
 import CoreLocation
 
 extension CLLocationDistance {
+    
+    /// Returns a rounded string in metres if `self` is less than 1000 m, and a
+    /// rounded string to 2 d.p. in kilometres if `self` is greater.
     func asRoundedKmOrM() -> String {
         if self < 1000 {
             return "\(Int(self)) m"

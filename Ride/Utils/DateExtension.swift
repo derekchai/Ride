@@ -8,6 +8,8 @@
 import Foundation
 
 extension Date {
+    
+    /// Returns the difference between two `Date`s as a `TimeInterval`.
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }

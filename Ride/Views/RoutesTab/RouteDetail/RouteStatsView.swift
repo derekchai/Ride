@@ -7,26 +7,26 @@
 
 import SwiftUI
 
-struct RouteStatisticsView: View {
-    let route: Route
+struct RouteStatsView: View {
+    let points: [RoutePoint]
     
     var body: some View {
         VStack (alignment: .center) {
-            Text(route.totalDistance.asRoundedKmOrM())
+            Text(points.totalDistance.asRoundedKmOrM())
                 .font(.title)
-                .padding([.bottom])
+                .padding([.top, .bottom])
             
             VStack {
                 HStack {
                     HStack {
                         Image(systemName: "stopwatch")
-                        Text(route.duration.asHMorMS)
+                        Text(points.duration.asHMorMS)
                     }
                     
                     Spacer()
                     
                     HStack {
-                        Text("\(String(format: "%.1f", route.averageSpeed)) km/h")
+                        Text("\(String(format: "%.1f", points.averageSpeed)) km/h")
                         Image(systemName: "figure.outdoor.cycle")
                     }
                 }
@@ -35,13 +35,13 @@ struct RouteStatisticsView: View {
                 HStack {
                     HStack {
                         Image(systemName: "arrow.up.forward")
-                        Text("\(String(format: "%.0f", route.totalAltitudeGain)) m")
+                        Text("\(String(format: "%.0f", points.totalAltitudeGain)) m")
                     }
                     
                     Spacer()
                     
                     HStack {
-                        Text("\(String(format: "%.0f", route.totalAltitudeLoss)) m")
+                        Text("\(String(format: "%.0f", points.totalAltitudeLoss)) m")
                         Image(systemName: "arrow.down.forward")
                     }
                 }
@@ -50,6 +50,6 @@ struct RouteStatisticsView: View {
     }
 }
 
-//#Preview {
-//    RouteStatisticsView()
-//}
+#Preview {
+    RouteStatsView(points: Route.sampleRoute.points)
+}

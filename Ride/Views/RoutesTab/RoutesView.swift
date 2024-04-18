@@ -9,6 +9,11 @@ import SwiftUI
 import CoreLocation
 import MapKit
 
+/// A `View` of a list of all routes that the user has recorded.
+///
+/// Each route is presented with its key stats, a preview of the route itself
+/// on a map, and with the option to view specific details about the route
+/// when the list item is tapped.
 struct RoutesView: View {
     @Binding var routes: [Route]
     
@@ -27,7 +32,7 @@ struct RoutesView: View {
                             
                             
                             NavigationLink(destination: RouteDetailView(route: route)) {
-                                    RouteCardView(route: route)
+                                    RouteStatsInListView(route: route)
                             }
                         }
                     }

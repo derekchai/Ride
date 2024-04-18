@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 extension CLLocationSpeed {
+    
     /// Returns the speed, given in m/s, as km/h.
     var asKmH: Double {
         self * 3.6

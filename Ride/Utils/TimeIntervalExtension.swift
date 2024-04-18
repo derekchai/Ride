@@ -8,6 +8,7 @@
 import Foundation
 
 extension TimeInterval {
+    
     /// Returns a formatted string in either `-h -m` or `-m -s` format.
     var asHMorMS: String {
         let formatter = DateComponentsFormatter()
@@ -19,6 +20,7 @@ extension TimeInterval {
         return formatter.string(from: self)!
     }
     
+    /// Returns a formatted string in `-:-:-` format.
     var asHMS: String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]

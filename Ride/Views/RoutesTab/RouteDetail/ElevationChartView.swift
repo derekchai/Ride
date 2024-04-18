@@ -9,7 +9,8 @@ import SwiftUI
 import Charts
 import CoreLocation
 
-struct RouteChartView: View {
+/// A chart of elevation against distance for a list of `RoutePoint`s.
+struct ElevationChartView: View {
     let routePoints: [RoutePoint]
     
     @Binding var showingHistogram: Bool
@@ -48,5 +49,5 @@ struct RouteChartView: View {
 }
 
 #Preview {
-    RouteChartView(routePoints: Route.sampleRoute.points, showingHistogram: .constant(false), selectedIndex: .constant(0))
+    ElevationChartView(routePoints: Route.sampleRoute.points, showingHistogram: .constant(false), selectedIndex: .constant(0))
 }

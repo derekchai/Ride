@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RouteSpecificStatisticView: View {
+struct SpecificStatView: View {
     let title: String
     let value: String
     let systemImage: String?
@@ -22,5 +22,5 @@ struct RouteSpecificStatisticView: View {
 }
 
 #Preview {
-    RouteSpecificStatisticView(title: "Test", value: "Test value", systemImage: "stopwatch")
+    SpecificStatView(title: "Test", value: "Test value", systemImage: "stopwatch")
 }
