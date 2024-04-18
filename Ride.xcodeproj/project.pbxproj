@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8302E202BD0B5D8001F6338 /* ActivityMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */; };
 		A8406CE92BCA06990022A221 /* RideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CE82BCA06990022A221 /* RideApp.swift */; };
 		A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CEA2BCA06990022A221 /* ContentView.swift */; };
 		A8406CED2BCA069A0022A221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8406CEC2BCA069A0022A221 /* Assets.xcassets */; };
@@ -27,7 +28,6 @@
 		A8406D252BCC8EF20022A221 /* SpecificStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D242BCC8EF20022A221 /* SpecificStatView.swift */; };
 		A8406D272BCCA9420022A221 /* MapSpeedLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */; };
 		A8406D292BCCADF90022A221 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D282BCCADF90022A221 /* MapView.swift */; };
-		A8406D322BCDCDFF0022A221 /* ActivityMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D312BCDCDFF0022A221 /* ActivityMode.swift */; };
 		A8406D372BCDD4280022A221 /* OutOfActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D362BCDD4280022A221 /* OutOfActivityView.swift */; };
 		A8406D392BCDD5020022A221 /* InActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D382BCDD5020022A221 /* InActivityView.swift */; };
 		A8406D3B2BCDD57A0022A221 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D3A2BCDD57A0022A221 /* FontExtension.swift */; };
@@ -39,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMode.swift; sourceTree = "<group>"; };
 		A8406CE52BCA06990022A221 /* Ride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8406CE82BCA06990022A221 /* RideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideApp.swift; sourceTree = "<group>"; };
 		A8406CEA2BCA06990022A221 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		A8406D242BCC8EF20022A221 /* SpecificStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificStatView.swift; sourceTree = "<group>"; };
 		A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSpeedLegendView.swift; sourceTree = "<group>"; };
 		A8406D282BCCADF90022A221 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		A8406D312BCDCDFF0022A221 /* ActivityMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMode.swift; sourceTree = "<group>"; };
 		A8406D362BCDD4280022A221 /* OutOfActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutOfActivityView.swift; sourceTree = "<group>"; };
 		A8406D382BCDD5020022A221 /* InActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActivityView.swift; sourceTree = "<group>"; };
 		A8406D3A2BCDD57A0022A221 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				A8406CFB2BCB68440022A221 /* LocationManager.swift */,
 				A8406D012BCB89270022A221 /* Route.swift */,
 				A8406D032BCB922B0022A221 /* RoutePoint.swift */,
-				A8406D312BCDCDFF0022A221 /* ActivityMode.swift */,
 				A88C31842BCE5041000B70EC /* ModelData.swift */,
+				A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +274,7 @@
 				A8406D1C2BCBE6C10022A221 /* RouteMapView.swift in Sources */,
 				A88C318A2BCE6085000B70EC /* DoubleExtension.swift in Sources */,
 				A88C31872BCE5F79000B70EC /* CLLocationSpeedExtension.swift in Sources */,
+				A8302E202BD0B5D8001F6338 /* ActivityMode.swift in Sources */,
 				A8406D252BCC8EF20022A221 /* SpecificStatView.swift in Sources */,
 				A8406D272BCCA9420022A221 /* MapSpeedLegendView.swift in Sources */,
 				A8406D232BCBE8350022A221 /* StrokeStyleExtension.swift in Sources */,
@@ -284,7 +285,6 @@
 				A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */,
 				A8406D1A2BCBE60F0022A221 /* RouteStatsView.swift in Sources */,
 				A8406D092BCB9F450022A221 /* TimeIntervalExtension.swift in Sources */,
-				A8406D322BCDCDFF0022A221 /* ActivityMode.swift in Sources */,
 				A8406D3B2BCDD57A0022A221 /* FontExtension.swift in Sources */,
 				A88C318E2BCE7C76000B70EC /* SpeedometerBar.swift in Sources */,
 			);

@@ -11,8 +11,26 @@ import MapKit
 struct MapView: View {
     @EnvironmentObject var locationManager: LocationManager
     
-    @State private var selectedActivityMode: ActivityMode = .cycle
+    @State private var activityMode: ActivityMode = .cycle
     @State private var hasStartedTracking = false
+    
+    private var speed: Binding<CLLocationSpeed> {
+        guard let mostRecentPoint = locationManager.routePoints.last else { return .constant(0) }
+        if mostRecentPoint.speed < 0 { return .constant(0) }
+        return Binding(get: { mostRecentPoint.speed }, set: { _ in })
+    }
+    
+    private var distanceTravelled: Binding<CLLocationDistance> {
+        return Binding(get: { locationManager.routePoints.totalDistance }, set: { _ in })
+    }
+    
+    private var timeElapsed: Binding<TimeInterval> {
+        return Binding(get: { locationManager.routePoints.duration }, set: { _ in })
+    }
+    
+    private var elevationGained: Binding<CLLocationDistance> {
+        return Binding(get: { locationManager.routePoints.totalAltitudeGain }, set: { _ in })
+    }
     
     var body: some View {
         VStack {
@@ -23,16 +41,17 @@ struct MapView: View {
             }
             .mapControls {
                 MapCompass()
+                MapUserLocationButton()
+            }
+            .sheet(isPresented: .constant(false)) {
             }
             
             if !locationManager.routePoints.isEmpty && hasStartedTracking {
-                // MARK: - Current stats view
-                
                 InActivityView(
-                    speed: $locationManager.routePoints.last?.speed ?? .constant(0),
-                    distanceTravelled: .constant(locationManager.routePoints.totalDistance),
-                    timeElapsed: .constant(locationManager.routePoints.duration),
-                    elevationGained: .constant(locationManager.routePoints.totalAltitudeGain)
+                    speed: speed,
+                    distanceTravelled: distanceTravelled,
+                    timeElapsed: timeElapsed,
+                    elevationGained: elevationGained
                 )
                 .animation(.easeInOut, value: hasStartedTracking)
                 
@@ -44,10 +63,8 @@ struct MapView: View {
                 .tint(.red)
                 
             } else {
-                // MARK: - Controls view
-                
                 OutOfActivityView(
-                    selectedActivityMode: $selectedActivityMode,
+                    selectedActivityMode: $activityMode,
                     goButtonPressed: {
                         locationManager.startUpdatingLocation()
                         hasStartedTracking = true
