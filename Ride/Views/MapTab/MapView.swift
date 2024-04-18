@@ -14,6 +14,8 @@ struct MapView: View {
     @State private var activityMode: ActivityMode = .cycle
     @State private var hasStartedTracking = false
     
+    // MARK: - Bindings
+    
     private var speed: Binding<CLLocationSpeed> {
         guard let mostRecentPoint = locationManager.routePoints.last else { return .constant(0) }
         if mostRecentPoint.speed < 0 { return .constant(0) }
@@ -32,6 +34,8 @@ struct MapView: View {
         return Binding(get: { locationManager.routePoints.totalAltitudeGain }, set: { _ in })
     }
     
+    // MARK: - body
+    
     var body: some View {
         VStack {
             Map(initialPosition: $locationManager.region.wrappedValue) {
@@ -43,40 +47,44 @@ struct MapView: View {
                 MapCompass()
                 MapUserLocationButton()
             }
-            .sheet(isPresented: .constant(false)) {
-            }
-            
-            if !locationManager.routePoints.isEmpty && hasStartedTracking {
-                InActivityView(
-                    speed: speed,
-                    distanceTravelled: distanceTravelled,
-                    timeElapsed: timeElapsed,
-                    elevationGained: elevationGained
-                )
-                .animation(.easeInOut, value: hasStartedTracking)
-                
-                Button("Stop") {
-                    locationManager.stopUpdatingLocation()
-                    hasStartedTracking = false
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.red)
-                
-            } else {
-                OutOfActivityView(
-                    selectedActivityMode: $activityMode,
-                    goButtonPressed: {
-                        locationManager.startUpdatingLocation()
-                        hasStartedTracking = true
+            .sheet(isPresented: .constant(true)) {
+                Group {
+                    if !locationManager.routePoints.isEmpty && hasStartedTracking {
+                        InActivityView(
+                            speed: speed,
+                            distanceTravelled: distanceTravelled,
+                            timeElapsed: timeElapsed,
+                            elevationGained: elevationGained
+                        )
+                        .animation(.easeInOut, value: hasStartedTracking)
+                        
+                        Button("Stop") {
+                            locationManager.stopUpdatingLocation()
+                            hasStartedTracking = false
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.red)
+                        
+                    } else {
+                        OutOfActivityView(
+                            selectedActivityMode: $activityMode,
+                            goButtonPressed: {
+                                locationManager.startUpdatingLocation()
+                                hasStartedTracking = true
+                            }
+                        )
+                        .animation(.easeInOut, value: hasStartedTracking)
                     }
-                )
-                .animation(.easeInOut, value: hasStartedTracking)
+                } // Group
+                .presentationDetents([.height(120), .medium])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(120)))
+                .interactiveDismissDisabled()
             }
         }
     } // body
     
     
-    // MARK: - MapContent
+    // MARK: - MapContent variables
     
     /// A polyline showing the user's route taken when in tracking mode.
     /// This is the white border/outline for the line itself.

@@ -10,6 +10,8 @@ import SwiftUI
 struct OutOfActivityView: View {
     @Binding var selectedActivityMode: ActivityMode
     
+    @State private var test: String = ""
+    
     var goButtonPressed: () -> ()
     
     var body: some View {

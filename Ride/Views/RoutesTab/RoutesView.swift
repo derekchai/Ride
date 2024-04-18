@@ -17,12 +17,14 @@ import MapKit
 struct RoutesView: View {
     @Binding var routes: [Route]
     
+    @State private var searchText: String = ""
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
                 VStack {
-                    List($routes) { $route in
-                        Section (header: Text(route.points.endTimestamp?.formatted() ?? "No date")) {
+                    List(searchResults) { result in
+                        Section (header: Text(result.points.endTimestamp?.formatted() ?? "No date")) {
                             Map {
                                 // TODO: - Show route
                             }
@@ -31,8 +33,8 @@ struct RoutesView: View {
                                 .allowsHitTesting(false)
                             
                             
-                            NavigationLink(destination: RouteDetailView(route: route)) {
-                                    RouteStatsInListView(route: route)
+                            NavigationLink(destination: RouteDetailView(route: result)) {
+                                    RouteStatsInListView(route: result)
                             }
                         }
                     }
@@ -40,6 +42,15 @@ struct RoutesView: View {
                 }
             }
         } // NavigationStack
+        .searchable(text: $searchText, prompt: "Search routes")
+    } // body
+    
+    private var searchResults: [Route] {
+        if searchText.isEmpty {
+            return routes
+        } else {
+            return routes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
     }
 }
 
