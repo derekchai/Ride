@@ -10,14 +10,13 @@ import MapKit
 
 struct MapView: View {
     @Environment(LocationManager.self) private var locationManager: LocationManager
+    @Environment(RouteTimer.self) private var routeTimer: RouteTimer
     
     @State private var activityMode: ActivityMode = .cycle
     @State private var hasStartedTracking = false
     
     @State private var startDate: Date?
     @State private var endDate: Date?
-    @State private var timerSecondsElapsed: TimeInterval = 0
-    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     // MARK: - Bindings
     
@@ -53,57 +52,28 @@ struct MapView: View {
                 MapUserLocationButton()
             }
             
-            
             if !locationManager.routePoints.isEmpty && hasStartedTracking {
                 InActivityView(
                     speed: speed,
                     distanceTravelled: distanceTravelled,
                     timeElapsed: timeElapsed,
                     elevationGained: elevationGained,
-                    stopButtonPressed: {
-                        withAnimation {
-                            locationManager.stopUpdatingLocation()
-                            hasStartedTracking = false
-                        }
-                    }
+                    stopButtonPressed: onStopButtonPressed
                 )
                 .padding(.top)
                 .environment(routeTimer)
             } else {
                 OutOfActivityView(
                     selectedActivityMode: $activityMode,
-                    goButtonPressed: {
-                        withAnimation {
-                            locationManager.startUpdatingLocation()
-                            hasStartedTracking = true
-                        }
-                    }
+                    goButtonPressed: onGoButtonPressed
                 )
                 .padding(.top)
-            }
-        }
-        
-        HStack {
-            Text("\(timerSecondsElapsed.roundedString(dp: 2)) s")
-                .onReceive(timer) { _ in
-                    if let startDate {
-                        timerSecondsElapsed += 0.01
-                    }
-                }
-            
-            Button("Start") {
-                startDate = Date.now
-            }
-            
-            Button("Stop") {
-                endDate = Date.now
-                startDate = nil
             }
         }
     } // body
     
     
-    // MARK: - MapContent variables
+    // MARK: - MapContent parameters
     
     /// A polyline showing the user's route taken when in tracking mode.
     /// This is the white border/outline for the line itself.
@@ -120,8 +90,25 @@ struct MapView: View {
             .strokeStyle(style: .mapRouteLine)
             .stroke(.blue)
     }
+    
+    // MARK: - Actions
+    
+    private func onStopButtonPressed() {
+        withAnimation {
+            locationManager.stopUpdatingLocation()
+            hasStartedTracking = false
+        }
+    }
+    
+    private func onGoButtonPressed() {
+        withAnimation {
+            locationManager.startUpdatingLocation()
+            hasStartedTracking = true
+        }
+    }
+    
 }
 
 #Preview {
-    MapView().environment(LocationManager())
+    MapView().environment(LocationManager()).environment(RouteTimer())
 }

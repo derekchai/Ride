@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RouteStatsView: View {
+struct RouteDetailStats: View {
     let points: [RoutePoint]
     
     var body: some View {
@@ -51,5 +51,5 @@ struct RouteStatsView: View {
 }
 
 #Preview {
-    RouteStatsView(points: Route.sampleRoute.points)
+    RouteDetailStats(points: Route.sampleRoute.points)
 }

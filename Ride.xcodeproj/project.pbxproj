@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		A8302E202BD0B5D8001F6338 /* ActivityMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */; };
 		A8302E242BD49C91001F6338 /* RouteTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E232BD49C91001F6338 /* RouteTimer.swift */; };
+		A8302E262BD5239B001F6338 /* RouteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E252BD5239B001F6338 /* RouteCard.swift */; };
+		A8302E292BD52605001F6338 /* OverviewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E282BD52605001F6338 /* OverviewSection.swift */; };
+		A8302E2B2BD5263A001F6338 /* MapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E2A2BD5263A001F6338 /* MapSection.swift */; };
+		A8302E2D2BD527D8001F6338 /* ElevationProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E2C2BD527D8001F6338 /* ElevationProfileSection.swift */; };
+		A8302E2F2BD52837001F6338 /* StatisticsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E2E2BD52837001F6338 /* StatisticsSection.swift */; };
 		A8406CE92BCA06990022A221 /* RideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CE82BCA06990022A221 /* RideApp.swift */; };
 		A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CEA2BCA06990022A221 /* ContentView.swift */; };
 		A8406CED2BCA069A0022A221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8406CEC2BCA069A0022A221 /* Assets.xcassets */; };
@@ -20,11 +25,11 @@
 		A8406D072BCB9B7F0022A221 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D062BCB9B7F0022A221 /* DateExtension.swift */; };
 		A8406D092BCB9F450022A221 /* TimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D082BCB9F450022A221 /* TimeIntervalExtension.swift */; };
 		A8406D0B2BCBA1F10022A221 /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D0A2BCBA1F10022A221 /* RouteDetailView.swift */; };
-		A8406D0D2BCBA21E0022A221 /* RouteStatsInListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D0C2BCBA21E0022A221 /* RouteStatsInListView.swift */; };
+		A8406D0D2BCBA21E0022A221 /* RouteStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D0C2BCBA21E0022A221 /* RouteStats.swift */; };
 		A8406D0F2BCBA6480022A221 /* CLLocationDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D0E2BCBA6480022A221 /* CLLocationDistanceExtension.swift */; };
-		A8406D152BCBC2710022A221 /* ElevationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D142BCBC2710022A221 /* ElevationChartView.swift */; };
-		A8406D1A2BCBE60F0022A221 /* RouteStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D192BCBE60F0022A221 /* RouteStatsView.swift */; };
-		A8406D1C2BCBE6C10022A221 /* RouteMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D1B2BCBE6C10022A221 /* RouteMapView.swift */; };
+		A8406D152BCBC2710022A221 /* ElevationChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D142BCBC2710022A221 /* ElevationChart.swift */; };
+		A8406D1A2BCBE60F0022A221 /* RouteDetailStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D192BCBE60F0022A221 /* RouteDetailStats.swift */; };
+		A8406D1C2BCBE6C10022A221 /* RouteMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D1B2BCBE6C10022A221 /* RouteMap.swift */; };
 		A8406D232BCBE8350022A221 /* StrokeStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */; };
 		A8406D252BCC8EF20022A221 /* SpecificStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D242BCC8EF20022A221 /* SpecificStatView.swift */; };
 		A8406D272BCCA9420022A221 /* MapSpeedLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */; };
@@ -42,6 +47,11 @@
 /* Begin PBXFileReference section */
 		A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMode.swift; sourceTree = "<group>"; };
 		A8302E232BD49C91001F6338 /* RouteTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimer.swift; sourceTree = "<group>"; };
+		A8302E252BD5239B001F6338 /* RouteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCard.swift; sourceTree = "<group>"; };
+		A8302E282BD52605001F6338 /* OverviewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSection.swift; sourceTree = "<group>"; };
+		A8302E2A2BD5263A001F6338 /* MapSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSection.swift; sourceTree = "<group>"; };
+		A8302E2C2BD527D8001F6338 /* ElevationProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationProfileSection.swift; sourceTree = "<group>"; };
+		A8302E2E2BD52837001F6338 /* StatisticsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsSection.swift; sourceTree = "<group>"; };
 		A8406CE52BCA06990022A221 /* Ride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8406CE82BCA06990022A221 /* RideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideApp.swift; sourceTree = "<group>"; };
 		A8406CEA2BCA06990022A221 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,11 +64,11 @@
 		A8406D062BCB9B7F0022A221 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A8406D082BCB9F450022A221 /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtension.swift; sourceTree = "<group>"; };
 		A8406D0A2BCBA1F10022A221 /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
-		A8406D0C2BCBA21E0022A221 /* RouteStatsInListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStatsInListView.swift; sourceTree = "<group>"; };
+		A8406D0C2BCBA21E0022A221 /* RouteStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStats.swift; sourceTree = "<group>"; };
 		A8406D0E2BCBA6480022A221 /* CLLocationDistanceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistanceExtension.swift; sourceTree = "<group>"; };
-		A8406D142BCBC2710022A221 /* ElevationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationChartView.swift; sourceTree = "<group>"; };
-		A8406D192BCBE60F0022A221 /* RouteStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStatsView.swift; sourceTree = "<group>"; };
-		A8406D1B2BCBE6C10022A221 /* RouteMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapView.swift; sourceTree = "<group>"; };
+		A8406D142BCBC2710022A221 /* ElevationChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationChart.swift; sourceTree = "<group>"; };
+		A8406D192BCBE60F0022A221 /* RouteDetailStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailStats.swift; sourceTree = "<group>"; };
+		A8406D1B2BCBE6C10022A221 /* RouteMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMap.swift; sourceTree = "<group>"; };
 		A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyleExtension.swift; sourceTree = "<group>"; };
 		A8406D242BCC8EF20022A221 /* SpecificStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificStatView.swift; sourceTree = "<group>"; };
 		A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSpeedLegendView.swift; sourceTree = "<group>"; };
@@ -87,11 +97,20 @@
 		A8302E1C2BD0B1BE001F6338 /* RoutesTab */ = {
 			isa = PBXGroup;
 			children = (
-				A8406CFF2BCB85170022A221 /* RoutesView.swift */,
-				A8406D0C2BCBA21E0022A221 /* RouteStatsInListView.swift */,
+				A8302E272BD52473001F6338 /* Routes */,
 				A8406D132BCBC25A0022A221 /* RouteDetail */,
 			);
 			path = RoutesTab;
+			sourceTree = "<group>";
+		};
+		A8302E272BD52473001F6338 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				A8406CFF2BCB85170022A221 /* RoutesView.swift */,
+				A8302E252BD5239B001F6338 /* RouteCard.swift */,
+				A8406D0C2BCBA21E0022A221 /* RouteStats.swift */,
+			);
+			path = Routes;
 			sourceTree = "<group>";
 		};
 		A8406CDC2BCA06990022A221 = {
@@ -172,11 +191,15 @@
 			isa = PBXGroup;
 			children = (
 				A8406D0A2BCBA1F10022A221 /* RouteDetailView.swift */,
-				A8406D142BCBC2710022A221 /* ElevationChartView.swift */,
-				A8406D192BCBE60F0022A221 /* RouteStatsView.swift */,
-				A8406D1B2BCBE6C10022A221 /* RouteMapView.swift */,
+				A8406D142BCBC2710022A221 /* ElevationChart.swift */,
+				A8406D192BCBE60F0022A221 /* RouteDetailStats.swift */,
+				A8406D1B2BCBE6C10022A221 /* RouteMap.swift */,
 				A8406D242BCC8EF20022A221 /* SpecificStatView.swift */,
 				A8406D262BCCA9410022A221 /* MapSpeedLegendView.swift */,
+				A8302E282BD52605001F6338 /* OverviewSection.swift */,
+				A8302E2A2BD5263A001F6338 /* MapSection.swift */,
+				A8302E2C2BD527D8001F6338 /* ElevationProfileSection.swift */,
+				A8302E2E2BD52837001F6338 /* StatisticsSection.swift */,
 			);
 			path = RouteDetail;
 			sourceTree = "<group>";
@@ -265,17 +288,22 @@
 			files = (
 				A8406D002BCB85170022A221 /* RoutesView.swift in Sources */,
 				A8406D0B2BCBA1F10022A221 /* RouteDetailView.swift in Sources */,
-				A8406D0D2BCBA21E0022A221 /* RouteStatsInListView.swift in Sources */,
+				A8302E2B2BD5263A001F6338 /* MapSection.swift in Sources */,
+				A8406D0D2BCBA21E0022A221 /* RouteStats.swift in Sources */,
 				A8302E242BD49C91001F6338 /* RouteTimer.swift in Sources */,
+				A8302E2D2BD527D8001F6338 /* ElevationProfileSection.swift in Sources */,
 				A88C31852BCE5041000B70EC /* ModelData.swift in Sources */,
 				A8406D392BCDD5020022A221 /* InActivityView.swift in Sources */,
+				A8302E292BD52605001F6338 /* OverviewSection.swift in Sources */,
+				A8302E2F2BD52837001F6338 /* StatisticsSection.swift in Sources */,
 				A8406D072BCB9B7F0022A221 /* DateExtension.swift in Sources */,
-				A8406D152BCBC2710022A221 /* ElevationChartView.swift in Sources */,
+				A8406D152BCBC2710022A221 /* ElevationChart.swift in Sources */,
 				A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */,
 				A8406D0F2BCBA6480022A221 /* CLLocationDistanceExtension.swift in Sources */,
+				A8302E262BD5239B001F6338 /* RouteCard.swift in Sources */,
 				A8406D042BCB922B0022A221 /* RoutePoint.swift in Sources */,
 				A8406CE92BCA06990022A221 /* RideApp.swift in Sources */,
-				A8406D1C2BCBE6C10022A221 /* RouteMapView.swift in Sources */,
+				A8406D1C2BCBE6C10022A221 /* RouteMap.swift in Sources */,
 				A88C318A2BCE6085000B70EC /* DoubleExtension.swift in Sources */,
 				A88C31872BCE5F79000B70EC /* CLLocationSpeedExtension.swift in Sources */,
 				A8302E202BD0B5D8001F6338 /* ActivityMode.swift in Sources */,
@@ -287,7 +315,7 @@
 				A8406D372BCDD4280022A221 /* OutOfActivityView.swift in Sources */,
 				A88C31832BCE1806000B70EC /* SpeedometerView.swift in Sources */,
 				A8406CFC2BCB68440022A221 /* LocationManager.swift in Sources */,
-				A8406D1A2BCBE60F0022A221 /* RouteStatsView.swift in Sources */,
+				A8406D1A2BCBE60F0022A221 /* RouteDetailStats.swift in Sources */,
 				A8406D092BCB9F450022A221 /* TimeIntervalExtension.swift in Sources */,
 				A8406D3B2BCDD57A0022A221 /* FontExtension.swift in Sources */,
 				A88C318E2BCE7C76000B70EC /* SpeedometerBar.swift in Sources */,

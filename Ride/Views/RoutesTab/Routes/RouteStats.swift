@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct RouteStatsInListView: View {
+struct RouteStats: View {
     let route: Route
     
     var body: some View {
@@ -47,5 +47,5 @@ struct RouteStatsInListView: View {
 }
 
 #Preview {
-    RouteStatsInListView(route: Route.sampleRoute)
+    RouteStats(route: Route.sampleRoute)
 }

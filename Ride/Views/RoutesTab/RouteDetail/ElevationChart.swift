@@ -10,7 +10,7 @@ import Charts
 import CoreLocation
 
 /// A chart of elevation against distance for a list of `RoutePoint`s.
-struct ElevationChartView: View {
+struct ElevationChart: View {
     let routePoints: [RoutePoint]
     
     @Binding var showingHistogram: Bool
@@ -49,5 +49,5 @@ struct ElevationChartView: View {
 }
 
 #Preview {
-    ElevationChartView(routePoints: Route.sampleRoute.points, showingHistogram: .constant(false), selectedIndex: .constant(0))
+    ElevationChart(routePoints: Route.sampleRoute.points, showingHistogram: .constant(false), selectedIndex: .constant(0))
 }

@@ -30,7 +30,7 @@ struct InActivityView: View {
                 }
                 .frame(maxWidth: .infinity)
                 
-                Button("Pause") {
+                Button("Stop") {
                     stopButtonPressed()
                 }
                 .buttonStyle(.borderedProminent)
