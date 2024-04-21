@@ -28,6 +28,7 @@ struct OutOfActivityView: View {
             self.goButtonPressed()
         }
         .buttonStyle(.borderedProminent)
+        .tint(.green)
         .padding(.bottom)
     }
 }

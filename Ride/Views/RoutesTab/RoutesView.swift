@@ -26,7 +26,7 @@ struct RoutesView: View {
                     List(searchResults) { result in
                         Section (header: Text(result.points.endTimestamp?.formatted() ?? "No date")) {
                             Map {
-                                // TODO: - Show route
+                                // TODO: - Show route preview
                             }
                                 .listRowInsets(EdgeInsets())
                                 .frame(height: 200)

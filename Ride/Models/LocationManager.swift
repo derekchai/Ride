@@ -10,17 +10,18 @@ import MapKit
 import SwiftUI
 import OSLog
 
-final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManger = CLLocationManager()
-    
-    @Published var region = MapCameraPosition.region(
+@Observable
+final class LocationManager: NSObject, CLLocationManagerDelegate {
+    var region = MapCameraPosition.region(
         MKCoordinateRegion(
             center: .init(latitude: -36.8509, longitude: 174.7645),
             span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
         )
     )
     
-    @Published var routePoints: [RoutePoint] = []
+    var routePoints: [RoutePoint] = []
+    
+    private let locationManger = CLLocationManager()
     
     private let log = Logger()
     

@@ -10,7 +10,8 @@ import CoreLocation
 import MapKit
 
 struct ContentView: View {
-    @StateObject private var locationManager = LocationManager()
+    @State private var locationManager = LocationManager()
+    @State private var routeTimer = RouteTimer()
     
     var body: some View {
         TabView {
@@ -20,7 +21,7 @@ struct ContentView: View {
                 }
             
             MapView()
-                .environmentObject(locationManager)
+                .environment(locationManager)
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }

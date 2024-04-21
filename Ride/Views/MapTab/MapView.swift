@@ -9,10 +9,15 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @EnvironmentObject var locationManager: LocationManager
+    @Environment(LocationManager.self) private var locationManager: LocationManager
     
     @State private var activityMode: ActivityMode = .cycle
     @State private var hasStartedTracking = false
+    
+    @State private var startDate: Date?
+    @State private var endDate: Date?
+    @State private var timerSecondsElapsed: TimeInterval = 0
+    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     // MARK: - Bindings
     
@@ -38,7 +43,7 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-            Map(initialPosition: $locationManager.region.wrappedValue) {
+            Map(initialPosition: locationManager.region) {
                 UserAnnotation()
                 routeOutline
                 routeLine
@@ -47,38 +52,52 @@ struct MapView: View {
                 MapCompass()
                 MapUserLocationButton()
             }
-            .sheet(isPresented: .constant(true)) {
-                Group {
-                    if !locationManager.routePoints.isEmpty && hasStartedTracking {
-                        InActivityView(
-                            speed: speed,
-                            distanceTravelled: distanceTravelled,
-                            timeElapsed: timeElapsed,
-                            elevationGained: elevationGained
-                        )
-                        .animation(.easeInOut, value: hasStartedTracking)
-                        
-                        Button("Stop") {
+            
+            
+            if !locationManager.routePoints.isEmpty && hasStartedTracking {
+                InActivityView(
+                    speed: speed,
+                    distanceTravelled: distanceTravelled,
+                    timeElapsed: timeElapsed,
+                    elevationGained: elevationGained,
+                    stopButtonPressed: {
+                        withAnimation {
                             locationManager.stopUpdatingLocation()
                             hasStartedTracking = false
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.red)
-                        
-                    } else {
-                        OutOfActivityView(
-                            selectedActivityMode: $activityMode,
-                            goButtonPressed: {
-                                locationManager.startUpdatingLocation()
-                                hasStartedTracking = true
-                            }
-                        )
-                        .animation(.easeInOut, value: hasStartedTracking)
                     }
-                } // Group
-                .presentationDetents([.height(120), .medium])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(120)))
-                .interactiveDismissDisabled()
+                )
+                .padding(.top)
+                .environment(routeTimer)
+            } else {
+                OutOfActivityView(
+                    selectedActivityMode: $activityMode,
+                    goButtonPressed: {
+                        withAnimation {
+                            locationManager.startUpdatingLocation()
+                            hasStartedTracking = true
+                        }
+                    }
+                )
+                .padding(.top)
+            }
+        }
+        
+        HStack {
+            Text("\(timerSecondsElapsed.roundedString(dp: 2)) s")
+                .onReceive(timer) { _ in
+                    if let startDate {
+                        timerSecondsElapsed += 0.01
+                    }
+                }
+            
+            Button("Start") {
+                startDate = Date.now
+            }
+            
+            Button("Stop") {
+                endDate = Date.now
+                startDate = nil
             }
         }
     } // body
@@ -89,7 +108,7 @@ struct MapView: View {
     /// A polyline showing the user's route taken when in tracking mode.
     /// This is the white border/outline for the line itself.
     private var routeOutline: some MapContent {
-        MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
+        MapPolyline(coordinates: locationManager.routePoints.map { $0.coordinate })
             .strokeStyle(style: .mapRouteOutline)
             .stroke(.white)
     }
@@ -97,12 +116,12 @@ struct MapView: View {
     /// A polyline showing the user's route taken when in tracking mode.
     /// This is the actual (blue) line showing the path.
     private var routeLine: some MapContent {
-        MapPolyline(coordinates: $locationManager.routePoints.map { $0.coordinate.wrappedValue })
+        MapPolyline(coordinates: locationManager.routePoints.map { $0.coordinate })
             .strokeStyle(style: .mapRouteLine)
             .stroke(.blue)
     }
 }
 
 #Preview {
-    MapView().environmentObject(LocationManager())
+    MapView().environment(LocationManager())
 }

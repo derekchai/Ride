@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A8302E202BD0B5D8001F6338 /* ActivityMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */; };
+		A8302E242BD49C91001F6338 /* RouteTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E232BD49C91001F6338 /* RouteTimer.swift */; };
 		A8406CE92BCA06990022A221 /* RideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CE82BCA06990022A221 /* RideApp.swift */; };
 		A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406CEA2BCA06990022A221 /* ContentView.swift */; };
 		A8406CED2BCA069A0022A221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8406CEC2BCA069A0022A221 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMode.swift; sourceTree = "<group>"; };
+		A8302E232BD49C91001F6338 /* RouteTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimer.swift; sourceTree = "<group>"; };
 		A8406CE52BCA06990022A221 /* Ride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8406CE82BCA06990022A221 /* RideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideApp.swift; sourceTree = "<group>"; };
 		A8406CEA2BCA06990022A221 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				A8406D032BCB922B0022A221 /* RoutePoint.swift */,
 				A88C31842BCE5041000B70EC /* ModelData.swift */,
 				A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */,
+				A8302E232BD49C91001F6338 /* RouteTimer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				A8406D002BCB85170022A221 /* RoutesView.swift in Sources */,
 				A8406D0B2BCBA1F10022A221 /* RouteDetailView.swift in Sources */,
 				A8406D0D2BCBA21E0022A221 /* RouteStatsInListView.swift in Sources */,
+				A8302E242BD49C91001F6338 /* RouteTimer.swift in Sources */,
 				A88C31852BCE5041000B70EC /* ModelData.swift in Sources */,
 				A8406D392BCDD5020022A221 /* InActivityView.swift in Sources */,
 				A8406D072BCB9B7F0022A221 /* DateExtension.swift in Sources */,
