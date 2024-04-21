@@ -23,8 +23,6 @@ struct Route: Identifiable {
     }
 }
 
-
-
 extension Route {
     static let sampleRoute = Route(
         name: "Sample Route",

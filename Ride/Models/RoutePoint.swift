@@ -117,10 +117,14 @@ extension [RoutePoint] {
         self.last?.timestamp
     }
     
-    /// The distance travelled (i.e. not displacement) between two indices of
-    /// `[RoutePoint]`, in metres.
-    ///
-    /// `i1 = 0` (starting point) by default.
+    
+    /// The distance travelled (not displacement) between two indices within the
+    /// `[RoutePoint]`.
+    /// - Parameters:
+    ///   - i1: Index of starting point.
+    ///   - i2: Index of ending point.
+    /// - Returns: Distance travelled from the starting point to the ending
+    /// point, in metres.
     func distanceBetween(i1: Int = 0, i2: Int)  -> CLLocationDistance {
         var sum: Double = 0
         for i in i1..<i2 {
@@ -152,6 +156,13 @@ extension [RoutePoint] {
         self.map { $0.altitude }
     }
     
+    /// Returns the first `RoutePoint` before `distance` metres travelled within
+    /// the `[RoutePoint]`. Useful for applications such as snapping to an actual
+    /// point within the `[RoutePoint]` within a map, from a continuous distance
+    /// slider.
+    /// - Parameter distance: In metres, before which the first `Point` is returned.
+    /// - Returns: The first `RoutePoint` before `distance` metres travelled
+    /// within the list.
     func pointBeforeDistance(distance: CLLocationDistance) -> RoutePoint? {
         guard !self.isEmpty else { return nil }
         
