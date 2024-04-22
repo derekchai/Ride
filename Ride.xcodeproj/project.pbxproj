@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A8302E202BD0B5D8001F6338 /* ActivityMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */; };
-		A8302E242BD49C91001F6338 /* RouteTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E232BD49C91001F6338 /* RouteTimer.swift */; };
 		A8302E262BD5239B001F6338 /* RouteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E252BD5239B001F6338 /* RouteCard.swift */; };
 		A8302E292BD52605001F6338 /* OverviewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E282BD52605001F6338 /* OverviewSection.swift */; };
 		A8302E2B2BD5263A001F6338 /* MapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8302E2A2BD5263A001F6338 /* MapSection.swift */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMode.swift; sourceTree = "<group>"; };
-		A8302E232BD49C91001F6338 /* RouteTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimer.swift; sourceTree = "<group>"; };
 		A8302E252BD5239B001F6338 /* RouteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCard.swift; sourceTree = "<group>"; };
 		A8302E282BD52605001F6338 /* OverviewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSection.swift; sourceTree = "<group>"; };
 		A8302E2A2BD5263A001F6338 /* MapSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSection.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				A8406D032BCB922B0022A221 /* RoutePoint.swift */,
 				A88C31842BCE5041000B70EC /* ModelData.swift */,
 				A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */,
-				A8302E232BD49C91001F6338 /* RouteTimer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,7 +287,6 @@
 				A8406D0B2BCBA1F10022A221 /* RouteDetailView.swift in Sources */,
 				A8302E2B2BD5263A001F6338 /* MapSection.swift in Sources */,
 				A8406D0D2BCBA21E0022A221 /* RouteStats.swift in Sources */,
-				A8302E242BD49C91001F6338 /* RouteTimer.swift in Sources */,
 				A8302E2D2BD527D8001F6338 /* ElevationProfileSection.swift in Sources */,
 				A88C31852BCE5041000B70EC /* ModelData.swift in Sources */,
 				A8406D392BCDD5020022A221 /* InActivityView.swift in Sources */,

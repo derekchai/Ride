@@ -10,15 +10,17 @@ import MapKit
 
 struct MapView: View {
     @Environment(LocationManager.self) private var locationManager: LocationManager
-    @Environment(RouteTimer.self) private var routeTimer: RouteTimer
     
     @State private var activityMode: ActivityMode = .cycle
     @State private var hasStartedTracking = false
     
+    @State private var startTime = Date()
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    
     @State private var startDate: Date?
     @State private var endDate: Date?
     
-    // MARK: - Bindings
+    @State private var timeElapsed: TimeInterval = 0.0
     
     private var speed: Binding<CLLocationSpeed> {
         guard let mostRecentPoint = locationManager.routePoints.last else { return .constant(0) }
@@ -28,10 +30,6 @@ struct MapView: View {
     
     private var distanceTravelled: Binding<CLLocationDistance> {
         return Binding(get: { locationManager.routePoints.totalDistance }, set: { _ in })
-    }
-    
-    private var timeElapsed: Binding<TimeInterval> {
-        return Binding(get: { locationManager.routePoints.duration }, set: { _ in })
     }
     
     private var elevationGained: Binding<CLLocationDistance> {
@@ -56,12 +54,20 @@ struct MapView: View {
                 InActivityView(
                     speed: speed,
                     distanceTravelled: distanceTravelled,
-                    timeElapsed: timeElapsed,
+                    timeElapsed: $timeElapsed,
                     elevationGained: elevationGained,
-                    stopButtonPressed: onStopButtonPressed
+                    stopButtonPressed: onStopButtonPressed, 
+                    goButtonPressed: onGoButtonPressed
                 )
                 .padding(.top)
-                .environment(routeTimer)
+                .onReceive(timer) { _ in
+                    if hasStartedTracking {
+                        timeElapsed = Date().timeIntervalSince(startTime)
+                    }
+                }
+                .onDisappear {
+                    onActivityViewDisappear()
+                }
             } else {
                 OutOfActivityView(
                     selectedActivityMode: $activityMode,
@@ -97,18 +103,25 @@ struct MapView: View {
         withAnimation {
             locationManager.stopUpdatingLocation()
             hasStartedTracking = false
+            locationManager.routes.append(Route(name: "New Route", routePoints: locationManager.routePoints))
         }
     }
     
     private func onGoButtonPressed() {
         withAnimation {
+            locationManager.routePoints = []
+            startTime = Date.now
             locationManager.startUpdatingLocation()
             hasStartedTracking = true
         }
     }
     
+    private func onActivityViewDisappear() {
+        locationManager.routePoints = []
+    }
+    
 }
 
 #Preview {
-    MapView().environment(LocationManager()).environment(RouteTimer())
+    MapView().environment(LocationManager())
 }

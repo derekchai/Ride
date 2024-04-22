@@ -15,17 +15,22 @@ import MapKit
 /// on a map, and with the option to view specific details about the route
 /// when the list item is tapped.
 struct RoutesView: View {
-    @Binding var routes: [Route]
+    @Environment(LocationManager.self) private var locationManager: LocationManager
+    
+//    @Binding var routes: [Route]
     
     @State private var searchText: String = ""
     
     var body: some View {
         NavigationStack {
-            VStack {
+            if !locationManager.routePoints.isEmpty {
                 List(filteredRoutes) { route in
                     RouteCard(route: route)
+                        .navigationTitle("Routes")
                 }
-                .navigationTitle("Routes")
+            } else {
+                Text("No routes")
+                    .navigationTitle("Routes")
             }
         }
         .searchable(text: $searchText, prompt: "Search routes")
@@ -35,14 +40,17 @@ struct RoutesView: View {
     
     /// Routes whose names contain `searchText`.
     private var filteredRoutes: [Route] {
+        guard !locationManager.routes.isEmpty else { return [Route]() }
+        
         if searchText.isEmpty {
-            return routes
+            return locationManager.routes
         } else {
-            return routes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            return locationManager.routes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
 }
 
 #Preview {
-    RoutesView(routes: .constant(Route.sampleData))
+    RoutesView()
+        .environment(LocationManager())
 }

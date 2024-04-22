@@ -21,6 +21,8 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     var routePoints: [RoutePoint] = []
     
+    var routes: [Route] = []
+    
     private let locationManger = CLLocationManager()
     
     private let log = Logger()
@@ -32,6 +34,8 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         self.locationManger.desiredAccuracy = kCLLocationAccuracyBest
         
         self.setup()
+        
+        self.routePoints = []
     }
     
     private func setup() {

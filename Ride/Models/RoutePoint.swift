@@ -47,14 +47,12 @@ struct RoutePoint: Identifiable, Equatable {
 extension [RoutePoint] {
     /// Returns the maximum `speed` from the array of `RoutePoint`s.
     var maxSpeed: CLLocationSpeed? {
-        let speeds = self.map { $0.speed }
-        return speeds.max()
+        return self.map { $0.speed }.max()
     }
     
     /// The average speed of the activity.
     var averageSpeed: CLLocationSpeed {
-        let sum = self.reduce(0) { $0 + $1.speed }
-        return sum / Double(self.count)
+        return self.totalDistance / self.duration
     }
     
     /// The total distance travelled during the activity.
