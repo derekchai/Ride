@@ -17,6 +17,7 @@ import SwiftData
 /// when the list item is tapped.
 struct RoutesView: View {
     @Environment(LocationManager.self) private var locationManager: LocationManager
+    @Environment(\.modelContext) private var modelContext
     @Query var allRoutes: [Route]
     
     @State private var searchText: String = ""
@@ -24,9 +25,17 @@ struct RoutesView: View {
     var body: some View {
         NavigationStack {
             if !allRoutes.isEmpty {
-                List(filteredRoutes) { route in
-                    RouteCard(route: route)
-                        .navigationTitle("Routes")
+//                List(filteredRoutes) { route in
+//                    RouteCard(route: route)
+//                        .navigationTitle("Routes")
+//
+//                }
+                List {
+                    ForEach(filteredRoutes) { route in
+                        RouteCard(route: route)
+                            .navigationTitle("Routes")
+                    }
+                    .onDelete(perform: removeRoutes)
                 }
             } else {
                 Text("No routes")
@@ -48,6 +57,14 @@ struct RoutesView: View {
         } else {
             return allRoutes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
                 .sorted { $0.endTimestamp.timeIntervalSinceReferenceDate > $1.endTimestamp.timeIntervalSinceReferenceDate }
+        }
+    }
+    
+    // MARK: - Actions
+    
+    private func removeRoutes(at indexSet: IndexSet) {
+        for index in indexSet {
+            modelContext.delete(allRoutes[index])
         }
     }
 }
