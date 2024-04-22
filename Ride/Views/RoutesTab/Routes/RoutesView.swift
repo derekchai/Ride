@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import MapKit
+import SwiftData
 
 /// A `View` of a list of all routes that the user has recorded.
 ///
@@ -16,14 +17,13 @@ import MapKit
 /// when the list item is tapped.
 struct RoutesView: View {
     @Environment(LocationManager.self) private var locationManager: LocationManager
-    
-//    @Binding var routes: [Route]
+    @Query var allRoutes: [Route]
     
     @State private var searchText: String = ""
     
     var body: some View {
         NavigationStack {
-            if !locationManager.routePoints.isEmpty {
+            if !allRoutes.isEmpty {
                 List(filteredRoutes) { route in
                     RouteCard(route: route)
                         .navigationTitle("Routes")
@@ -40,12 +40,14 @@ struct RoutesView: View {
     
     /// Routes whose names contain `searchText`.
     private var filteredRoutes: [Route] {
-        guard !locationManager.routes.isEmpty else { return [Route]() }
+        guard !allRoutes.isEmpty else { return [Route]() }
         
         if searchText.isEmpty {
-            return locationManager.routes
+            return allRoutes
+                .sorted { $0.endTimestamp > $1.endTimestamp }
         } else {
-            return locationManager.routes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            return allRoutes.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+                .sorted { $0.endTimestamp.timeIntervalSinceReferenceDate > $1.endTimestamp.timeIntervalSinceReferenceDate }
         }
     }
 }

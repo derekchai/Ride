@@ -37,10 +37,10 @@
 		A8406D392BCDD5020022A221 /* InActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D382BCDD5020022A221 /* InActivityView.swift */; };
 		A8406D3B2BCDD57A0022A221 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8406D3A2BCDD57A0022A221 /* FontExtension.swift */; };
 		A88C31832BCE1806000B70EC /* SpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31822BCE1806000B70EC /* SpeedometerView.swift */; };
-		A88C31852BCE5041000B70EC /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31842BCE5041000B70EC /* ModelData.swift */; };
 		A88C31872BCE5F79000B70EC /* CLLocationSpeedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31862BCE5F79000B70EC /* CLLocationSpeedExtension.swift */; };
 		A88C318A2BCE6085000B70EC /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C31892BCE6085000B70EC /* DoubleExtension.swift */; };
 		A88C318E2BCE7C76000B70EC /* SpeedometerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88C318D2BCE7C76000B70EC /* SpeedometerBar.swift */; };
+		A8BA5FA62BD608D600946413 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BA5FA52BD608D600946413 /* CLLocationCoordinate2DExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,10 +75,10 @@
 		A8406D382BCDD5020022A221 /* InActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActivityView.swift; sourceTree = "<group>"; };
 		A8406D3A2BCDD57A0022A221 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		A88C31822BCE1806000B70EC /* SpeedometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerView.swift; sourceTree = "<group>"; };
-		A88C31842BCE5041000B70EC /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		A88C31862BCE5F79000B70EC /* CLLocationSpeedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationSpeedExtension.swift; sourceTree = "<group>"; };
 		A88C31892BCE6085000B70EC /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		A88C318D2BCE7C76000B70EC /* SpeedometerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerBar.swift; sourceTree = "<group>"; };
+		A8BA5FA52BD608D600946413 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,6 @@
 				A8406CFB2BCB68440022A221 /* LocationManager.swift */,
 				A8406D012BCB89270022A221 /* Route.swift */,
 				A8406D032BCB922B0022A221 /* RoutePoint.swift */,
-				A88C31842BCE5041000B70EC /* ModelData.swift */,
 				A8302E1F2BD0B5D8001F6338 /* ActivityMode.swift */,
 			);
 			path = Models;
@@ -180,6 +179,7 @@
 				A8406D222BCBE8350022A221 /* StrokeStyleExtension.swift */,
 				A8406D3A2BCDD57A0022A221 /* FontExtension.swift */,
 				A88C31892BCE6085000B70EC /* DoubleExtension.swift */,
+				A8BA5FA52BD608D600946413 /* CLLocationCoordinate2DExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -288,7 +288,6 @@
 				A8302E2B2BD5263A001F6338 /* MapSection.swift in Sources */,
 				A8406D0D2BCBA21E0022A221 /* RouteStats.swift in Sources */,
 				A8302E2D2BD527D8001F6338 /* ElevationProfileSection.swift in Sources */,
-				A88C31852BCE5041000B70EC /* ModelData.swift in Sources */,
 				A8406D392BCDD5020022A221 /* InActivityView.swift in Sources */,
 				A8302E292BD52605001F6338 /* OverviewSection.swift in Sources */,
 				A8302E2F2BD52837001F6338 /* StatisticsSection.swift in Sources */,
@@ -296,6 +295,7 @@
 				A8406D152BCBC2710022A221 /* ElevationChart.swift in Sources */,
 				A8406CEB2BCA06990022A221 /* ContentView.swift in Sources */,
 				A8406D0F2BCBA6480022A221 /* CLLocationDistanceExtension.swift in Sources */,
+				A8BA5FA62BD608D600946413 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				A8302E262BD5239B001F6338 /* RouteCard.swift in Sources */,
 				A8406D042BCB922B0022A221 /* RoutePoint.swift in Sources */,
 				A8406CE92BCA06990022A221 /* RideApp.swift in Sources */,

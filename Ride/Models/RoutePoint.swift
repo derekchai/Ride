@@ -8,19 +8,13 @@
 import Foundation
 import MapKit
 import SwiftUI
+import SwiftData
 
-struct RoutePoint: Identifiable, Equatable {
-    /// Returns `true` if both sides' latitudes and longitudes are equal.
-    ///
-    /// `id`, `speed`, `altitude`, and `timestamp` are ignored.
+class RoutePoint: Identifiable, Codable, Equatable {
     static func == (lhs: RoutePoint, rhs: RoutePoint) -> Bool {
-        if lhs.coordinate.latitude == rhs.coordinate.latitude 
-            && lhs.coordinate.longitude == rhs.coordinate.longitude {
-            return true
-        } else {
-            return false
-        }
+        return lhs.coordinate.latitude == rhs.coordinate.latitude && lhs.coordinate.longitude == rhs.coordinate.longitude
     }
+    
     
     var id: UUID
     
@@ -42,6 +36,34 @@ struct RoutePoint: Identifiable, Equatable {
         self.altitude = altitude
         self.timestamp = timestamp
     }
+    
+    enum CodingKeys: CodingKey {
+        case _id
+        case _coordinate
+        case _speed
+        case _altitude
+        case _timestamp
+        case _$backingData
+        case _$observationRegistrar
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: ._id)
+        coordinate = try container.decode(CLLocationCoordinate2D.self, forKey: ._coordinate)
+        speed = try container.decode(CLLocationSpeed.self, forKey: ._speed)
+        altitude = try container.decode(CLLocationDistance.self, forKey: ._altitude)
+        timestamp = try container.decode(Date.self, forKey: ._timestamp)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: ._id)
+        try container.encode(coordinate, forKey: ._coordinate)
+        try container.encode(speed, forKey: ._speed)
+        try container.encode(altitude, forKey: ._altitude)
+        try container.encode(timestamp, forKey: ._timestamp)
+    }
 }
 
 extension [RoutePoint] {
@@ -50,13 +72,15 @@ extension [RoutePoint] {
         return self.map { $0.speed }.max()
     }
     
-    /// The average speed of the activity.
+    /// The average speed of the route, in metres per second.
     var averageSpeed: CLLocationSpeed {
         return self.totalDistance / self.duration
     }
     
     /// The total distance travelled during the activity.
     var totalDistance: CLLocationDistance {
+        guard !self.isEmpty else { return 0 }
+        
         var sum: Double = 0
         for i in 0..<self.count - 1 {
             let coordinateA = self[i].coordinate
@@ -72,6 +96,8 @@ extension [RoutePoint] {
     
     /// The altitude ascended, in metres.
     var totalAltitudeGain: CLLocationDistance {
+        guard !self.isEmpty else { return 0 }
+        
         var sum: Double = 0
         for i in 0..<self.count - 1 {
             let altitudeA = self[i].altitude
@@ -86,6 +112,8 @@ extension [RoutePoint] {
     
     /// The altitude descended, in metres.
     var totalAltitudeLoss: CLLocationDistance {
+        guard !self.isEmpty else { return 0 }
+
         var sum: Double = 0
         for i in 0..<self.count - 1 {
             let altitudeA = self[i].altitude

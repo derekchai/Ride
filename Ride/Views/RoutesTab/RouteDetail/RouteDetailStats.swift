@@ -26,7 +26,7 @@ struct RouteDetailStats: View {
                     Spacer()
                     
                     HStack {
-                        Text("\(String(format: "%.1f", points.averageSpeed)) km/h")
+                        Text("\(String(format: "%.1f", points.averageSpeed.asKmH)) km/h")
                         Image(systemName: "figure.outdoor.cycle")
                     }
                 }

@@ -9,17 +9,49 @@ import Foundation
 import CoreLocation
 import MapKit
 import SwiftUI
+import SwiftData
 
-struct Route: Identifiable {
+@Model
+class Route: Identifiable, Codable {
     let id: UUID
     
-    var name: String
-    var points: [RoutePoint]
+    var name: String = ""
+    var points: [RoutePoint] = []
+    
+    var endTimestamp: Date {
+        self.points.endTimestamp ?? Date.now
+    }
+    
+    var totalDistance: CLLocationDistance {
+        self.points.totalDistance
+    }
     
     init(id: UUID = UUID(), name: String, routePoints: [RoutePoint]) {
         self.id = id
         self.name = name
         self.points = routePoints
+    }
+    
+    enum CodingKeys: CodingKey {
+        case _id
+        case _name
+        case _points
+        case _$backingData
+        case _$observationRegistrar
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: ._id)
+        name = try container.decode(String.self, forKey: ._name)
+        points = try container.decode([RoutePoint].self, forKey: ._points)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: ._id)
+        try container.encode(name, forKey: ._name)
+        try container.encode(points, forKey: ._points)
     }
 }
 

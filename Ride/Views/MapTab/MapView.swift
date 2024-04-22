@@ -10,6 +10,7 @@ import MapKit
 
 struct MapView: View {
     @Environment(LocationManager.self) private var locationManager: LocationManager
+    @Environment(\.modelContext) private var context
     
     @State private var activityMode: ActivityMode = .cycle
     @State private var hasStartedTracking = false
@@ -103,7 +104,20 @@ struct MapView: View {
         withAnimation {
             locationManager.stopUpdatingLocation()
             hasStartedTracking = false
-            locationManager.routes.append(Route(name: "New Route", routePoints: locationManager.routePoints))
+//            locationManager.routes.append(Route(name: "New Route", routePoints: locationManager.routePoints))
+            
+            print("Route ponts: -----")
+            for point in locationManager.routePoints {
+                print("\(point.coordinate.latitude), \(point.coordinate.longitude)")
+            }
+            
+            let newRoute = Route(name: "New Route", routePoints: locationManager.routePoints)
+            
+//            print("\(newRoute.points.totalDistance) total distance")
+            
+            print("\(newRoute.totalDistance) total distance from route")
+            
+            context.insert(newRoute)
         }
     }
     
@@ -119,7 +133,6 @@ struct MapView: View {
     private func onActivityViewDisappear() {
         locationManager.routePoints = []
     }
-    
 }
 
 #Preview {

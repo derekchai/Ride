@@ -9,10 +9,11 @@ import Foundation
 import MapKit
 import SwiftUI
 import OSLog
+import SwiftData
 
 @Observable
 final class LocationManager: NSObject, CLLocationManagerDelegate {
-    var region = MapCameraPosition.region(
+    @Transient var region = MapCameraPosition.region(
         MKCoordinateRegion(
             center: .init(latitude: -36.8509, longitude: 174.7645),
             span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
